@@ -538,4 +538,4 @@ const randomAdjectiveArray = [
     'zealous'
 ];
 
-export default randomAdjectiveArray;
+module.exports = randomAdjectiveArray;

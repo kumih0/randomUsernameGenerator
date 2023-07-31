@@ -305,3 +305,4 @@ const randomNounArray = [
     'zombie'
 ];
 
+module.exports = randomNounArray;
