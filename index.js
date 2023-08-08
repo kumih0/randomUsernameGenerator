@@ -1,22 +1,25 @@
 const randomAdjectiveArray = require('./utils/randomAdjective');
 const randomNounArray = require('./utils/randomNoun');
+const { getRandomArrayItem, checkRepeats, randomDate } = require('./utils/helpers');
 
 
-console.log(randomAdjectiveArray[Math.floor(Math.random() * randomAdjectiveArray.length)]);
-
-//generate list of 30 usernames
+//generate single username
 const generateRandomUsername = () => {
+    return getRandomArrayItem(randomAdjectiveArray)+getRandomArrayItem(randomNounArray)+(Math.floor(Math.random() * 100));
+};
+
+//generate list of usernames, req number input
+const generateRandomUsernameList = (num) => {
     //empty usernames array
     const usernames = [];
-    for (let i = 0; i < 30; i++) {
-        const randomAdj = randomAdjectiveArray[Math.floor(Math.random() * randomAdjectiveArray.length)];
-        const randomNoun = randomNounArray[Math.floor(Math.random() * randomNounArray.length)];
+    for (let i = 0; i < num; i++) {
+        let randomAdj = getRandomArrayItem(randomAdjectiveArray);
+        let randomNoun = getRandomArrayItem(randomNounArray);
 
-        //check for redundancies
-        if(usernames.toString().includes(randomAdj)) {
-            randomAdj = randomAdjectiveArray[Math.floor(Math.random() * randomAdjectiveArray.length)];
-        }
-        if(usernames)
+        console.log(randomAdj, randomNoun);
+
+        randomAdj = checkRepeats(usernames, randomAdjectiveArray, randomAdj)
+        randomNoun = checkRepeats(usernames, randomNounArray, randomNoun);
 
         const newUsername = randomAdj + randomNoun + (Math.floor(Math.random() * 100));
 
@@ -24,3 +27,5 @@ const generateRandomUsername = () => {
         console.log('doin it');
     }
     console.log(usernames);
+};
+
