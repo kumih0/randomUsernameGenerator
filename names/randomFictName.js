@@ -75,3 +75,5 @@ const consonants = [
     'q', 'w', 'r', 't', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'
 ];
 
+//language rules and name structure defined below for my made up language/names that seem close but aren't anything
+
