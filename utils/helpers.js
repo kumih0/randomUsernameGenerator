@@ -32,5 +32,9 @@ const randomDate = () => {
 };
 
 //more generating random funct...
+//TODO: generate age > given age params, generate DOB w age range params, generate random passwords (creating models files for use?)
+//creating models and schemas based on selection or intended proj? (rp/dnd vs database?)
+
+//generating titles and names funct will be found in their folders
 
 module.exports = {getRandomArrayItem, checkRepeats, randomDate};

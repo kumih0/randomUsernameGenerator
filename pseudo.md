@@ -43,3 +43,7 @@ other media, titles, content?
 clean/exclude swears?
 
 write it to json file
+
+fictional names
+break down letters into patterns or groups based on syntax  of language?
+

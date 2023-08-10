@@ -1,3 +1,5 @@
+const { getRandomArrayItem, checkRepeats } = '../utils/helpers';
+
 //array of common words used in fantasy names etc.
 const rpNameArray = [
     'night',
@@ -62,7 +64,13 @@ const rpNameArray = [
     'boom',
     'stick',
     'quiet',
-    'man'
+    'man',
+    'breeze',
+    'wind',
+    'thunder',
+    'storm',
+    'cloud',
+    'rain'
 ];
 
 //array of vowels
@@ -75,5 +83,26 @@ const consonants = [
     'q', 'w', 'r', 't', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'
 ];
 
-//language rules and name structure defined below for my made up language/names that seem close but aren't anything
+//generate random consonant
+const randomCons = () => {
+return getRandomArrayItem(consonants);
+};
 
+//generate random vowel
+const randomVowel = () => {
+return getRandomArrayItem(vowels);
+};
+
+//language rules and name structure defined below for my made up language/names that seem close but aren't anything
+const createName = () => {
+    const name = [];
+    //make the length of name random under 10 letters
+    const randomLength = Math.floor(Math.random() * 10 + 1);
+
+    //randomly select letters based on length
+    for(let i=0; i<randomLength; i++){
+
+    }
+
+    
+}
