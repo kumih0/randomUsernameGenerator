@@ -95,13 +95,13 @@ return getRandomArrayItem(vowels);
 
 //language rules and name structure defined below for my made up language/names that seem close but aren't anything
 const createName = () => {
-    const name = [];
+    let name = '';
     //make the length of name random under 10 letters
     const randomLength = Math.floor(Math.random() * 10 + 1);
 
     //randomly select letters based on length
-    for(let i=0; i<randomLength; i++){
-
+    for(let i=0; i<randomLength; i++) {
+        
     }
 
     

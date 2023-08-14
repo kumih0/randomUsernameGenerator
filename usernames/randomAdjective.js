@@ -132,7 +132,7 @@ const randomAdjectiveArray = [
     'formidable',
     'foul',
     'foreign',
-    'facist',
+    'fascist',
     'feminist',
     'fickle',
     'french',

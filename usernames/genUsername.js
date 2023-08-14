@@ -17,7 +17,7 @@ const generateRandomUsernameList = (num) => {
 
         console.log(randomAdj, randomNoun);
 
-        randomAdj = checkRepeats(usernames, randomAdjectiveArray, randomAdj)
+        randomAdj = checkRepeats(usernames, randomAdjectiveArray, randomAdj);
         randomNoun = checkRepeats(usernames, randomNounArray, randomNoun);
 
         const newUsername = randomAdj + randomNoun + (Math.floor(Math.random() * 100));
