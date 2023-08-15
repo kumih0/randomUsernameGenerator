@@ -10,24 +10,24 @@ const mainMenu = [
             'lemme out!'
         ],
     },
+];
+
+const dataMenu = [
 //options menu for gen data
     {
         type: 'list',
         name: 'dataopt',
         message: 'what do ya need?',
         choices: [
-            ''
+            'users', 'posts/comments', 'other media/products', 'go back'
         ],
         when: function (answers) {
             return answers.options ==='make me some data';
         },
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return 'You must choose at least one option.';
-            }
-            return true;
-        },
     },
+];
+
+const funMenu = [
 //options menu for fun!
     {
         type: 'list',
@@ -44,6 +44,29 @@ const mainMenu = [
         },
     },
 ];
+
+//all options menu
+const allOptions = [
+    {
+        type: 'list',
+        name: 'allopt',
+        message: '',
+        choices: [
+            'generate usernames',
+            'make up people names',
+            'create random ages/birth date',
+            'make rp/dnd names',
+            'create random titles',
+            'generate random descriptions',
+            'generate posts',
+            'make some comments',
+            'generate other media/products',
+            'back to main'
+        ],
+        default: 'back to main',
+    },
+];
+
 
 //options menu for username gen
 const usernamePrompts = [
@@ -99,4 +122,4 @@ const usernamePrompts = [
     },
 ];
 
-module.exports = { mainMenu, usernamePrompts }; 
+module.exports = { mainMenu, usernamePrompts, dataMenu, funMenu, allOptions }; 
