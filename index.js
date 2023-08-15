@@ -1,7 +1,7 @@
 //importing functions and inquirer for prompts
-const inquirer = require('inquirer');
 const fs = require('fs');
-const {generateRandomUsername, generateRandomUsernameList } = require('./usernames/genUsername');
+const inquirer = require('inquirer');
+const { generateRandomUsername, generateRandomUsernameList } = require('./usernames/genUsername');
 const { mainMenu, usernamePrompts, dataMenu, funMenu, allOptions } = require('./utils/menu');
 
 
@@ -13,16 +13,16 @@ const { mainMenu, usernamePrompts, dataMenu, funMenu, allOptions } = require('./
 //main menu selection using switch cases
 const main = () => {
     inquirer.prompt(mainMenu).then((answers) => {
-       switch (answers.options) {
-        case 'make me some data':
-            return data();
-        case 'just here for fun :)':
-            return fun();
-        case 'show me all the options buddy':
-            return everything();
-        default:
-            return exit();
-       }
+        switch (answers.options) {
+            case 'make me some data':
+                return data();
+            case 'just here for fun :)':
+                return fun();
+            case 'show me all the options buddy':
+                return everything();
+            default:
+                return exit();
+        }
     });
 };
 
@@ -57,7 +57,7 @@ const fun = () => {
                 return rpNames();
             case 'do some text':
                 return textStuff();
-            case 'go back':
+            case 'take me back!':
                 return main();
         }
     });
@@ -90,3 +90,41 @@ const everything = () => {
         }
     });
 };
+
+const usernames = () => {
+    inquirer.prompt(usernamePrompts).then((answers) => {
+        switch (answers.usernames) {
+            case 'just one pls':
+                return console.log('generating one username...'), console.log(generateRandomUsername());
+            case 'go back':
+                return main();
+        };
+        // const genList = generateRandomUsernameList(num);
+
+        // switch (answers.filetype) {
+        //     case 'json':
+        //         return fs.writeFile('usernames.json', JSON.stringify(generateRandomUsernameList(num)), (err) => {
+        //             if (err) throw err;
+        //             console.log('file saved');
+        //         });
+        //     case 'txt':
+        //         return fs.writeFile('usernames.txt', generateRandomUsernameList(num), (err) => {
+        //             if (err) throw err;
+        //             console.log('file saved');
+        //         });
+        //     case 'js':
+        //         return fs.writeFile('usernames.js', `module.exports = ${JSON.stringify(generateRandomUsernameList(num))}`, (err) => {
+        //             if (err) throw err;
+        //             console.log('file saved');
+        //         });
+        //     case 'csv':
+        //         return fs.writeFile('usernames.csv', generateRandomUsernameList(num), (err) => {
+        //             if (err) throw err;
+        //             console.log('file saved');
+        //         });
+        // }
+
+    });
+};
+
+main();

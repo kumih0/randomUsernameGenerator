@@ -47,3 +47,9 @@ write it to json file
 fictional names
 break down letters into patterns or groups based on syntax  of language?
 
+mapping out funct calls for each menu and submenu
+
+user: name, age/dob, username, email, password
+posts
+comments
+text-title, desc

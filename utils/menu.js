@@ -1,3 +1,5 @@
+const { generateRandomUsernameList } = require("../usernames/genUsername");
+
 const mainMenu = [
     {
         type: 'list',
@@ -13,7 +15,7 @@ const mainMenu = [
 ];
 
 const dataMenu = [
-//options menu for gen data
+    //options menu for gen data
     {
         type: 'list',
         name: 'dataopt',
@@ -22,13 +24,13 @@ const dataMenu = [
             'users', 'posts/comments', 'other media/products', 'go back'
         ],
         when: function (answers) {
-            return answers.options ==='make me some data';
+            return answers.options === 'make me some data';
         },
     },
 ];
 
 const funMenu = [
-//options menu for fun!
+    //options menu for fun!
     {
         type: 'list',
         name: 'funopt',
@@ -50,7 +52,7 @@ const allOptions = [
     {
         type: 'list',
         name: 'allopt',
-        message: '',
+        message: 'alrighty, here are all the options',
         choices: [
             'generate usernames',
             'make up people names',
@@ -78,47 +80,49 @@ const usernamePrompts = [
             'just one pls', 'list', 'go back'
         ],
     },
-    {
-        type: 'confirm',
-        name: 'printfile',
-        message: 'print the results into a file?',
-        default: true,
-        when: function (answers) {
-            return answers.usernames === 'list';
-        }
-    },
-    {
-        type: 'checkbox',
-        name: 'filetype',
-        message: 'select desired file type, (multiple ok)',
-        choices: [
-            'json', 'txt', 'js', 'csv'
-        ],
-        when: function (answers) {
-            return answers.printfile;
-        }
-    },
+    // {
+    //     type: 'confirm',
+    //     name: 'printfile',
+    //     message: 'print the results into a file?',
+    //     default: true,
+    //     when: function (answers) {
+    //         return answers.usernames === 'list';
+    //     }
+    // },
+    // {
+    //     type: 'checkbox',
+    //     name: 'filetype',
+    //     message: 'select desired file type, (multiple ok)',
+    //     choices: [
+    //         'json', 'txt', 'js', 'csv'
+    //     ],
+    //     default: 'json',
+    //     when: function (answers) {
+    //         return answers.printfile;
+    //     }
+    // },
     {
         type: 'input',
         name: 'howmany',
         message: 'generate how many random usernames?',
-        filter: Number,
-        validate: function (value) {
-            var valid = !isNaN(parseFloat(value));
-            return valid || 'Pls enter a number';
-        },
         when: function (answers) {
             return answers.usernames === 'list';
         },
-        default: 20,
-    },
-    {
-        type: 'input',
-        name: 'username',
-        message: 'generate a random username?',
-        when: function (answers) {
-            return answers.usernames === 'just one pls';
-        }
+        validate: function (value) {
+            switch (value) {
+                case value === NaN:
+                    return 'pls input valid number';
+                case value < 1:
+                    return 'pls input number greater than 0';
+                case value > 500:
+                    return 'too many pls pick less';
+                case (value === 69 || value === 420):
+                        return 'nice';
+                default:
+                    console.log(`\n generating ${value} usernames...`);
+                    generateRandomUsernameList(value);
+            }
+        },
     },
 ];
 
