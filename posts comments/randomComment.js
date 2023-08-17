@@ -90,6 +90,6 @@ const randomComments = [
     "Follow your heart and trust the journey. 💫 #TrustTheProcess",
 ];
 
-console.log(emojiReactions.length, comments.length, randomComments.length);
+// console.log(emojiReactions.length, comments.length, randomComments.length);
 
 module.exports = { emojiReactions, comments, randomComments };
