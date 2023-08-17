@@ -1,10 +1,6 @@
 const fs = require('fs');
 
-
-//will need to generalize to make adaptable for input
-//pass the funct thru as param?
-//making json file
-
+//sep file writers for each file type
 const json = (funct, fname) => {
     fs.writeFile(`./results/${fname}.json`, JSON.stringify(funct), (err) => {
         if (err) throw err;
@@ -35,7 +31,7 @@ const csv = (funct, fname) => {
 
 //helper funct for writing files instead 
 const whichFiles = (answers, funct, fname) => {
-    console.log(answers, ' fartsfarts');
+
     if (answers.includes('json')) {
         json(funct, fname);
     }

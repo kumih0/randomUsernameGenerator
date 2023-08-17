@@ -18,7 +18,6 @@ const main = () => {
             case 'make me some data':
                 return data(answers);
             case 'just here for fun :)':
-                console.log('fun time!');
                 return fun(answers);
             case 'show me all the options buddy':
                 return everything();
@@ -51,7 +50,6 @@ const data = (answers) => {
 const fun = (answers) => {
     switch (answers.funopt) {
         case 'lookin for usernames':
-            console.log('username time!');
             return usernames();
         case 'wanna make rp/dnd name':
             return rpNames();
@@ -107,10 +105,9 @@ const usernames = () => {
                  return console.log(`generating ${num} usernames...\n`), console.table(genList), whichFiles(filetype, genList, 'usernames');
             case 'go back':
                 return main();
-            // default:
-            //     return exit();
+            default:
+                return exit();
         };
-
     });
 };
 

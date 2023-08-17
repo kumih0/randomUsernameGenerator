@@ -59,7 +59,6 @@ const allOptions = [
             'generate other media/products',
             'back to main'
         ],
-        default: 'back to main',
     },
 ];
 
@@ -88,9 +87,21 @@ const usernamePrompts = [
         name: 'filetype',
         message: 'select desired file type, (multiple ok)',
         choices: [
-            'json', 'txt', 'js', 'csv'
+            {
+                name: 'json',
+                checked: true
+            },
+            {
+                name: 'txt',
+                checked: true
+            },
+            {
+                name: 'js'
+            },
+            {
+                name: 'csv'
+            }
         ],
-        default: 'json',
         when: function (answers) {
             return answers.printfile;
         }
@@ -103,7 +114,7 @@ const usernamePrompts = [
             return answers.usernames === 'list';
         },
         validate: function (value) {
-            if(value > 500 || value < 1 ){
+            if(value > 500 || value < 1 || isNaN(value)){
                 return 'pls enter valid number'
             }
             return true;
