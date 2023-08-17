@@ -23,9 +23,9 @@ const generateRandomUsernameList = (num) => {
         const newUsername = randomAdj + randomNoun + (Math.floor(Math.random() * 100));
 
         usernames.push(newUsername);
-        console.log('doin it');
+        // console.log('doin it');
     }
-    console.log(usernames);
+    // console.log(usernames);
     return usernames;
 };
 

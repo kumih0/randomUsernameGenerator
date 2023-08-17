@@ -70,7 +70,25 @@ const rpNameArray = [
     'thunder',
     'storm',
     'cloud',
-    'rain'
+    'rain',
+    'snow',
+    'ice',
+    'frost',
+    'winter',
+    'summer',
+    'spring',
+    'autumn',
+    'fall',
+    'ember',
+    'tide',
+    'wave',
+    'sea',
+    'sky',
+    'earth',
+    'stone',
+    'iron',
+    'steel',
+    'gold',
 ];
 
 //array of vowels

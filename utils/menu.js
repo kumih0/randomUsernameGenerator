@@ -12,9 +12,6 @@ const mainMenu = [
             'lemme out!'
         ],
     },
-];
-
-const dataMenu = [
     //options menu for gen data
     {
         type: 'list',
@@ -27,9 +24,6 @@ const dataMenu = [
             return answers.options === 'make me some data';
         },
     },
-];
-
-const funMenu = [
     //options menu for fun!
     {
         type: 'list',
@@ -109,21 +103,12 @@ const usernamePrompts = [
             return answers.usernames === 'list';
         },
         validate: function (value) {
-            switch (value) {
-                case value === NaN:
-                    return 'pls input valid number';
-                case value < 1:
-                    return 'pls input number greater than 0';
-                case value > 500:
-                    return 'too many pls pick less';
-                case (value === 69 || value === 420):
-                        return 'nice';
-                default:
-                    console.log(`\n generating ${value} usernames...`);
-                    generateRandomUsernameList(value);
+            if(value > 500 || value < 1 ){
+                return 'pls enter valid number'
             }
+            return true;
         },
     },
 ];
 
-module.exports = { mainMenu, usernamePrompts, dataMenu, funMenu, allOptions }; 
+module.exports = { mainMenu, usernamePrompts, allOptions }; 

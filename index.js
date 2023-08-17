@@ -2,7 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { generateRandomUsername, generateRandomUsernameList } = require('./usernames/genUsername');
-const { mainMenu, usernamePrompts, dataMenu, funMenu, allOptions } = require('./utils/menu');
+const { mainMenu, usernamePrompts, allOptions } = require('./utils/menu');
 
 
 // const runIt = () => {
@@ -13,11 +13,16 @@ const { mainMenu, usernamePrompts, dataMenu, funMenu, allOptions } = require('./
 //main menu selection using switch cases
 const main = () => {
     inquirer.prompt(mainMenu).then((answers) => {
+        console.log(answers);
         switch (answers.options) {
-            case 'make me some data':
-                return data();
+            // case 'make me some data':
+            //     return data();
             case 'just here for fun :)':
-                return fun();
+                console.log('fun time!');
+                return fun(answers);
+            // case 'lookin for usernames':
+            //     console.log('username time!');
+            //     return usernames();
             case 'show me all the options buddy':
                 return everything();
             default:
@@ -31,27 +36,27 @@ const exit = () => {
     process.exit();
 };
 
-//data menu
-const data = () => {
-    inquirer.prompt(dataMenu).then((answers) => {
-        switch (answers.dataopt) {
-            case 'users':
-                return userData();
-            case 'posts/comments':
-                return postCommentData();
-            case 'other media/products':
-                return other();
-            case 'go back':
-                return main();
-        }
-    });
-};
+// //data menu
+// const data = () => {
+//     inquirer.prompt(dataMenu).then((answers) => {
+//         switch (answers.dataopt) {
+//             case 'users':
+//                 return userData();
+//             case 'posts/comments':
+//                 return postCommentData();
+//             case 'other media/products':
+//                 return other();
+//             case 'go back':
+//                 return main();
+//         }
+//     });
+// };
 
 //fun menu
-const fun = () => {
-    inquirer.prompt(funMenu).then((answers) => {
+const fun = (answers) => {
         switch (answers.funopt) {
             case 'lookin for usernames':
+                console.log('username time!');
                 return usernames();
             case 'wanna make rp/dnd name':
                 return rpNames();
@@ -60,12 +65,12 @@ const fun = () => {
             case 'take me back!':
                 return main();
         }
-    });
 };
 
 //all options menu
 const everything = () => {
     inquirer.prompt(allOptions).then((answers) => {
+        console.log(answers.allopt);
         switch (answers.allopt) {
             case 'generate usernames':
                 return usernames();
@@ -93,13 +98,21 @@ const everything = () => {
 
 const usernames = () => {
     inquirer.prompt(usernamePrompts).then((answers) => {
+        console.log(answers);
+        const num = answers.howmany;
+        const genUsername = generateRandomUsername();
+        const genList = generateRandomUsernameList(num);
+
         switch (answers.usernames) {
             case 'just one pls':
-                return console.log('generating one username...'), console.log(generateRandomUsername());
+                return console.log('generating one username...'), console.log(genUsername);
+            case 'list':
+                return console.log(`generating ${num} usernames...\n`), console.table(genList);
             case 'go back':
                 return main();
+            default:
+                return exit();
         };
-        // const genList = generateRandomUsernameList(num);
 
         // switch (answers.filetype) {
         //     case 'json':
