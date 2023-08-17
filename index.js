@@ -94,7 +94,6 @@ const usernames = () => {
         console.log(answers);
         const num = answers.howmany;
         const filetype = answers.filetype;
-        console.log(filetype);
         const genUsername = generateRandomUsername();
         const genList = generateRandomUsernameList(num);
 
