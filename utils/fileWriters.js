@@ -33,4 +33,21 @@ const csv = (funct, fname) => {
     });
 };
 
-module.exports = { json, txt, js, csv };
+//helper funct for writing files instead 
+const whichFiles = (answers, funct, fname) => {
+    console.log(answers, ' fartsfarts');
+    if (answers.includes('json')) {
+        json(funct, fname);
+    }
+    if (answers.includes('txt')) {
+        txt(funct, fname);
+    }
+    if (answers.includes('js')) {
+        js(funct, fname);
+    }
+    if (answers.includes('csv')) {
+        csv(funct, fname);
+    }
+};
+
+module.exports = { json, txt, js, csv, whichFiles };

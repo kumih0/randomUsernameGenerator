@@ -41,4 +41,4 @@ const coinFlip = () => {
 
 //generating titles and names funct will be found in their folders
 
-module.exports = {getRandomArrayItem, checkRepeats, randomDate, coinFlip};
+module.exports = {getRandomArrayItem, checkRepeats, randomDate, coinFlip };

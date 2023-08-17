@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const { generateRandomUsername, generateRandomUsernameList } = require('./usernames/genUsername');
 const { mainMenu, usernamePrompts, allOptions } = require('./utils/menu');
-const { json, txt, js, csv } = require('./utils/fileWriters');
+const { whichFiles } = require('./utils/fileWriters');
 
 
 // const runIt = () => {
@@ -95,6 +95,8 @@ const usernames = () => {
     inquirer.prompt(usernamePrompts).then((answers) => {
         console.log(answers);
         const num = answers.howmany;
+        const filetype = answers.filetype;
+        console.log(filetype);
         const genUsername = generateRandomUsername();
         const genList = generateRandomUsernameList(num);
 
@@ -102,21 +104,11 @@ const usernames = () => {
             case 'just one pls':
                 return console.log('generating one username...'), console.log(genUsername);
             case 'list':
-                return console.log(`generating ${num} usernames...\n`), console.table(genList);
+                 return console.log(`generating ${num} usernames...\n`), console.table(genList), whichFiles(filetype, genList, 'usernames');
             case 'go back':
                 return main();
             // default:
             //     return exit();
-        };
-        switch(answers.filetype) {
-            case 'json':
-                return json(genList);
-            case 'txt':
-                return txt(genList);
-            case 'js':
-                return js(genList);
-            case 'csv':
-                return csv(genList);
         };
 
     });

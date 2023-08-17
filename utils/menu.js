@@ -74,27 +74,27 @@ const usernamePrompts = [
             'just one pls', 'list', 'go back'
         ],
     },
-    // {
-    //     type: 'confirm',
-    //     name: 'printfile',
-    //     message: 'print the results into a file?',
-    //     default: true,
-    //     when: function (answers) {
-    //         return answers.usernames === 'list';
-    //     }
-    // },
-    // {
-    //     type: 'checkbox',
-    //     name: 'filetype',
-    //     message: 'select desired file type, (multiple ok)',
-    //     choices: [
-    //         'json', 'txt', 'js', 'csv'
-    //     ],
-    //     default: 'json',
-    //     when: function (answers) {
-    //         return answers.printfile;
-    //     }
-    // },
+    {
+        type: 'confirm',
+        name: 'printfile',
+        message: 'print the results into a file?',
+        default: true,
+        when: function (answers) {
+            return answers.usernames === 'list';
+        }
+    },
+    {
+        type: 'checkbox',
+        name: 'filetype',
+        message: 'select desired file type, (multiple ok)',
+        choices: [
+            'json', 'txt', 'js', 'csv'
+        ],
+        default: 'json',
+        when: function (answers) {
+            return answers.printfile;
+        }
+    },
     {
         type: 'input',
         name: 'howmany',
