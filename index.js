@@ -1,8 +1,8 @@
 //importing functions and inquirer for prompts
-const fs = require('fs');
 const inquirer = require('inquirer');
 const { generateRandomUsername, generateRandomUsernameList } = require('./usernames/genUsername');
 const { mainMenu, usernamePrompts, allOptions } = require('./utils/menu');
+const { json, txt, js, csv } = require('./utils/fileWriters');
 
 
 // const runIt = () => {
@@ -15,14 +15,11 @@ const main = () => {
     inquirer.prompt(mainMenu).then((answers) => {
         console.log(answers);
         switch (answers.options) {
-            // case 'make me some data':
-            //     return data();
+            case 'make me some data':
+                return data(answers);
             case 'just here for fun :)':
                 console.log('fun time!');
                 return fun(answers);
-            // case 'lookin for usernames':
-            //     console.log('username time!');
-            //     return usernames();
             case 'show me all the options buddy':
                 return everything();
             default:
@@ -36,35 +33,33 @@ const exit = () => {
     process.exit();
 };
 
-// //data menu
-// const data = () => {
-//     inquirer.prompt(dataMenu).then((answers) => {
-//         switch (answers.dataopt) {
-//             case 'users':
-//                 return userData();
-//             case 'posts/comments':
-//                 return postCommentData();
-//             case 'other media/products':
-//                 return other();
-//             case 'go back':
-//                 return main();
-//         }
-//     });
-// };
+//data menu
+const data = (answers) => {
+    switch (answers.dataopt) {
+        case 'users':
+            return userData();
+        case 'posts/comments':
+            return postCommentData();
+        case 'other media/products':
+            return other();
+        case 'go back':
+            return main();
+    }
+};
 
 //fun menu
 const fun = (answers) => {
-        switch (answers.funopt) {
-            case 'lookin for usernames':
-                console.log('username time!');
-                return usernames();
-            case 'wanna make rp/dnd name':
-                return rpNames();
-            case 'do some text':
-                return textStuff();
-            case 'take me back!':
-                return main();
-        }
+    switch (answers.funopt) {
+        case 'lookin for usernames':
+            console.log('username time!');
+            return usernames();
+        case 'wanna make rp/dnd name':
+            return rpNames();
+        case 'do some text':
+            return textStuff();
+        case 'take me back!':
+            return main();
+    }
 };
 
 //all options menu
@@ -110,32 +105,19 @@ const usernames = () => {
                 return console.log(`generating ${num} usernames...\n`), console.table(genList);
             case 'go back':
                 return main();
-            default:
-                return exit();
+            // default:
+            //     return exit();
         };
-
-        // switch (answers.filetype) {
-        //     case 'json':
-        //         return fs.writeFile('usernames.json', JSON.stringify(generateRandomUsernameList(num)), (err) => {
-        //             if (err) throw err;
-        //             console.log('file saved');
-        //         });
-        //     case 'txt':
-        //         return fs.writeFile('usernames.txt', generateRandomUsernameList(num), (err) => {
-        //             if (err) throw err;
-        //             console.log('file saved');
-        //         });
-        //     case 'js':
-        //         return fs.writeFile('usernames.js', `module.exports = ${JSON.stringify(generateRandomUsernameList(num))}`, (err) => {
-        //             if (err) throw err;
-        //             console.log('file saved');
-        //         });
-        //     case 'csv':
-        //         return fs.writeFile('usernames.csv', generateRandomUsernameList(num), (err) => {
-        //             if (err) throw err;
-        //             console.log('file saved');
-        //         });
-        // }
+        switch(answers.filetype) {
+            case 'json':
+                return json(genList);
+            case 'txt':
+                return txt(genList);
+            case 'js':
+                return js(genList);
+            case 'csv':
+                return csv(genList);
+        };
 
     });
 };

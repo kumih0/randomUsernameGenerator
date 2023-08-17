@@ -5,29 +5,29 @@ const fs = require('fs');
 //pass the funct thru as param?
 //making json file
 
-const json = (num) => {
-    fs.writeFile('./results/usernames.json', JSON.stringify(generateRandomUsernameList(num)), (err) => {
+const json = (funct, fname) => {
+    fs.writeFile(`./results/${fname}.json`, JSON.stringify(funct), (err) => {
         if (err) throw err;
         console.log('json file saved');
     });
 };
 
-const txt = (num) => {
-    fs.writeFile('./results/usernames.txt', generateRandomUsernameList(num).join('\n'), (err) => {
+const txt = (funct, fname) => {
+    fs.writeFile(`./results/${fname}.txt`, funct.join('\n'), (err) => {
         if (err) throw err;
         console.log('txt file saved');
     });
 };
 
-const js = (num) => {
-    fs.writeFile('./results/usernames.js', `const usernames = ${JSON.stringify(generateRandomUsernameList(num))}; module.exports = usernames;`, (err) => {
+const js = (funct, fname) => {
+    fs.writeFile(`./results/${fname}.js`, `const ${fname} = ${JSON.stringify(funct)}; module.exports = ${fname};`, (err) => {
         if (err) throw err;
         console.log('js file saved');
     });
 };
 
-const csv = (num) => {
-    fs.writeFile('./results/usernames.csv', generateRandomUsernameList(num).join(','), (err) => {
+const csv = (funct, fname) => {
+    fs.writeFile(`./results/${fname}.csv`, funct.join(','), (err) => {
         if (err) throw err;
         console.log('csv file saved');
     });
