@@ -29,13 +29,17 @@ users:
     - select what to include in user data:
         - username, email, password, name (first/last), age or DOB,
 
-    - do you need hashed pws?
+    - do you need hashed pws? (brcypt)
     - do you need full names or first and last
     - real names or made up?
-    - need a range for age
+    - need a range for age, dob or age only?
 
 post title/text, createdat, username
 comment text, createdat, username
+    - do you need users connected to posts/comments?
+    - if yes, and no usernames found in results folder, ask if need users generation (send through user funct), or do you already have users in database?
+    - if already have users, what is model property to assign and what is value... or is iterable userId? or throw err msg "copy/paste json file into results folder"
+    - how to connect users to posts/comments> username, email, name, input own prop?
 
 
 other media, titles, content?
