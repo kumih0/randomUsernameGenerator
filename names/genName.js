@@ -1,6 +1,7 @@
 const { maleNames, femaleNames, unisexNames, prefixArray, suffixArray, surnameArray } = require('./randomName');
 const { getRandomArrayItem, checkRepeats } = require('../utils/helpers');
 
+//generate first name
 const generateRandomGivenName = (type) => {
     let nameArray = [];
     switch (type) {
@@ -20,9 +21,12 @@ const generateRandomGivenName = (type) => {
     return getRandomArrayItem(nameArray);
 };
 
+//generatiung last name
 const generateRandomSurname = () => {
+    return getRandomArrayItem(surnameArray);
 };
 
+//generating one full name
 const generateRandomName = () => {
 };
 
