@@ -37,3 +37,11 @@ To access from the front-end, simply open at the live link below; no download ne
 The results will display on the page and you can copy/paste the results, or re-run it for different results.
 
 ## 
+
+
+## References
+Sources used for inspiration and references for data generation:
+    - [Name Census](https://namecensus.com/first-names/)
+    - [ChatGPT](https://chat.openai.com/)
+    - [Fantasy Name Generator](https://www.fantasynamegenerators.com/)
+    - [Surnames, History, Genealogy: Prefixes and Suffixes](https://www.suzzgenpage.com/surname-prefixes-and-suffixes/)

@@ -284,5 +284,10 @@ const surnameArray = [
 
 //array of common surname suffixes
 const suffixArray = [
-    'son', 'smith', 'ington', 'y', 'ie', 'man', 
+    'son', 'smith', 'ington', 'y', 'ie', 'man', 's', 'kins', 'kin', 'ken', 'sen', 'berg', 'stein', 'ski', 'sky', 'ez', 'e', 'es',  'ski', 'ing', 'to', 'ic', 'ik', 'ich', 'owicz', 'owski', 'ov', 'off', 'ev', 'in', 'ov', 'enko', 'uk', 'ak', 'an', 'ies', 'all', 'ard', 'bank', 'art', 'bury', 'by', 'bourn', 'burn', 'bury', 'borough', 'brough', 'brow', 'burg', 'burgh', 'beck', 'bert', 'born', 'bridge', 'brick', 'bourne', 'brier', 'brook', 'buck', 'burton', 'cock', 'dale', 'ell', 'ett', 'field', 'ford', 'forth', 'gate', 'ham', 'hard', 'hart', 'hill', 'horn', 'house', 'ings', 'lake', 'land', 'ley', 'lin', 'low', 'mond', 'more', 'miller', 'ner', 'nett', 'ott', 'rich', 'ricks', 'ridge', 'shaw', 'shire', 'inson', 'stone', 'strom', 'thal', 'ton', 'wald', 'ward', 'well', 'wick', 'win', 'wood', 'worth', 'wright'
 ];
+
+//array of prefixes
+const prefixArray = [
+  'De', 'Der', 'El', 'Fitz', 'Kil', 'Le', 'Mac', 'Mc', "O'", 'Van', 'West' 
+]
