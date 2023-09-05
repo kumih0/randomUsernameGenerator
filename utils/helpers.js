@@ -35,6 +35,8 @@ const coinFlip = () => {
     return Math.floor(Math.random() * 2);
 };
 
+
+
 //more generating random funct...
 //TODO: generate age > given age params, generate DOB w age range params, generate random passwords (creating models files for use?)
 //creating models and schemas based on selection or intended proj? (rp/dnd vs database?)

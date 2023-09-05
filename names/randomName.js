@@ -80,22 +80,98 @@ const unisexNames = [
 
 //array of last names/surnames
 const surnameArray = [
-  "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson", "Walker", "Young", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores", "Green", "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", "Mitchell", "Carter", "Roberts", "Gomez", "Phillips", "Evans", "Turner", "Diaz", "Parker", "Cruz", "Edwards", "Collins", "Reyes", "Stewart", "Morris", "Morales", "Murphy", "Cook", "Rogers", "Gutierrez", "Ortiz", "Morgan", "Cooper", "Peterson", "Bailey", "Reed", "Kelly", "Howard", "Ramos", "Kim", "Cox", "Ward", "Richardson", "Watson", "Brooks", "Chavez", "Wood", "James", "Bennett", "Gray", "Mendoza", "Ruiz", "Hughes", "Price", "Alvarez", "Castillo", "Sanders", "Patel", "Myers", "Long", "Ross", "Foster", "Jimenez", "Powell", "Jenkins", "Perry", "Russell", "Sullivan", "Bell", "Coleman", "Butler", "Henderson", "Barnes", "Gonzales", "Fisher", "Vasquez", "Simmons", "Romero", "Jordan", "Patterson", "Alexander", "Hamilton", "Graham", "Reynolds", "Griffin", "Wallace", "Moreno", "West", "Cole", "Hayes", "Bryant", "Herrera", "Gibson", "Ellis", "Tran", "Medina", "Aguilar", "Stevens", "Murray", "Ford", "Castro", "Marshall", "Owens", "Harrison", "Fernandez", "McDonald", "Woods", "Washington", "Kennedy", "Wells", "Vargas", "Henry", "Chen", "Freeman", "Webb", "Tucker", "Guzman", "Burns", "Crawford", "Olson", "Simpson", "Porter", "Hunter", "Gordon", "Mendez", "Silva", "Shaw", "Snyder", "Mason", "Dixon", "Munoz", "Hunt", "Hicks", "Holmes", "Palmer", "Wagner", "Black", "Robertson", "Boyd", "Rose", "Stone", "Salazar", "Fox", "Warren", "Mills", "Meyer", "Rice", "Schmidt", "Garza", "Daniels", "Ferguson", "Nichols", "Stephens", "Soto", "Weaver", "Ryan", "Gardner", "Payne", "Grant", "Dunn", "Kelley", "Spencer", "Hawkins"
+"Johnson", "Brown", "Garcia", "Davis", "Martinez", "Lopez", "Wilson", "Thomas", "Moore", "Martin", "Perez", "White", 
+"Sanchez", "Ramirez", "Robinson", "Young", "King", "Scott", "Nguyen", "Flores", "Adams", "Baker", "Rivera", "Mitchell", 
+"Roberts", "Phillips", "Turner", "Parker", "Edwards", "Reyes", "Morris", "Murphy", "Rogers", "Ortiz", "Cooper", "Bailey", 
+"Kelly", "Ramos", "Cox", "Richardson", "Brooks", "Wood", "Bennett", "Mendoza", "Hughes", "Alvarez", "Sanders", "Myers", 
+"Ross", "Jimenez", "Jenkins", "Russell", "Bell", "Butler", "Barnes", "Fisher", "Simmons", "Jordan", "Alexander", "Graham", 
+"Griffin", "Moreno", "Cole", "Bryant", "Gibson", "Tran", "Aguilar", "Murray", "Castro", "Owens", "Fernandez", "Woods", 
+"Kennedy", "Vargas", "Chen", "Webb", "Guzman", "Crawford", "Simpson", "Hunter", "Mendez", "Shaw", "Mason", "Munoz", "Hicks", 
+"Palmer", "Black", "Boyd", "Stone", "Fox", "Mills", "Rice", "Garza", "Ferguson", "Stephens", "Weaver", "Gardner", "Grant", 
+"Kelley", "Hawkins", "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", 
+"Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", 
+"Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson", "Walker", "Young", "Allen", "King", 
+"Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores", "Green", "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", 
+"Mitchell", "Carter", "Roberts", "Gomez", "Phillips", "Evans", "Turner", "Diaz", "Parker", "Cruz", "Edwards", "Collins", 
+"Reyes", "Stewart", "Morris", "Morales", "Murphy", "Cook", "Rogers", "Gutierrez", "Ortiz", "Morgan", "Cooper", "Peterson", 
+"Bailey", "Reed", "Kelly", "Howard", "Ramos", "Kim", "Cox", "Ward", "Richardson", "Watson", "Brooks", "Chavez", "Wood", 
+"James", "Bennett", "Gray", "Mendoza", "Ruiz", "Hughes", "Price", "Alvarez", "Castillo", "Sanders", "Patel", "Myers", "Long", 
+"Ross", "Foster", "Jimenez", "Arnold", "Pierce", "Vazquez", "Hansen", "Peters", "Santos", "Hart", "Bradley", "Knight", 
+"Elliott", "Cunningham", "Duncan", "Armstrong", "Hudson", "Carroll", "Lane", "Riley", "Andrews", "Alvarado", "Ray", "Delgado", 
+"Berry", "Perkins", "Hoffman", "Johnston", "Matthews", "Pena", "Richards", "Contreras", "Willis", "Carpenter", "Lawrence", 
+"Sandoval", "Guerrero", "George", "Chapman", "Rios", "Estrada", "Ortega", "Watkins", "Greene", "Nunez", "Wheeler", "Valdez", 
+"Harper", "Burke", "Larson", "Santiago", "Maldonado", "Morrison", "Franklin", "Carlson", "Austin", "Dominguez", "Carr", 
+"Lawson", "Jacobs", "Obrien", "Lynch", "Singh", "Vega", "Bishop", "Montgomery", "Oliver", "Jensen", "Harvey", "Williamson", 
+"Gilbert", "Dean", "Sims", "Espinoza", "Howell", "Li", "Wong", "Reid", "Hanson", "Le", "McCoy", "Garrett", "Burton", "Fuller", 
+"Wang", "Weber", "Welch", "Rojas", "Lucas", "Marquez", "Fields", "Park", "Yang", "Little", "Banks", "Padilla", "Day", "Walsh", 
+"Bowman", "Schultz", "Luna", "Fowler", "Mejia", "Davidson", "Acosta", "Brewer", "May", "Holland", "Juarez", "Newman", 
+"Pearson", "Curtis", "Cortez", "Douglas", "Schneider", "Joseph", "Barrett", "Navarro", "Figueroa", "Keller", "Avila", "Wade", 
+"Molina", "Stanley", "Hopkins", "Campos", "Barnett", "Bates", "Chambers", "Caldwell", "Beck", "Lambert", "Miranda", "Byrd", 
+"Craig", "Ayala", "Lowe", "Frazier", "Powers", "Neal", "Leonard", "Gregory", "Carrillo", "Sutton", "Fleming", "Rhodes", 
+"Shelton", "Schwartz", "Norris", "Jennings", "Watts", "Duran", "Walters", "Cohen", "McDaniel", "Moran", "Parks", "Steele", 
+"Vaughn", "Becker", "Holt", "Deleon", "Barker", "Terry", "Hale", "Leon", "Hail", "Benson", "Haynes", "Horton", "Miles", 
+"Lyons", "Pham", "Graves", "Bush", "Thornton", "Wolfe", "Warner", "Cabrera", "McKinney", "Mann", "Zimmerman", "Dawson", 
+"Powell", "Jenkins", "Perry", "Russell", "Sullivan", "Bell", "Coleman", "Butler", "Henderson", "Barnes", "Gonzales", "Fisher", 
+"Vasquez", "Simmons", "Romero", "Jordan", "Patterson", "Alexander", "Hamilton", "Graham", "Reynolds", "Smith", "Griffin", 
+"Wallace", "Moreno", "West", "Cole", "Hayes", "Bryant", "Herrera", "Gibson", "Ellis", "Tran", "Medina", "Aguilar", "Stevens", 
+"Murray", "Ford", "Castro", "Marshall", "Owens", "Harrison", "Fernandez", "McDonald", "Woods", "Washington", "Kennedy", 
+"Wells", "Vargas", "Henry", "Chen", "Freeman", "Webb", "Tucker", "Guzman", "Burns", "Crawford", "Olson", "Simpson", "Porter", 
+"Hunter", "Gordon", "Mendez", "Silva", "Shaw", "Snyder", "Mason", "Dixon", "Munoz", "Hunt", "Hicks", "Holmes", "Palmer", 
+"Wagner", "Black", "Robertson", "Boyd", "Rose", "Stone", "Salazar", "Fox", "Warren", "Mills", "Meyer", "Rice", "Schmidt", 
+"Garza", "Daniels", "Ferguson", "Nichols", "Stephens", "Soto", "Weaver", "Ryan", "Gardner", "Payne", "Grant", "Dunn", 
+"Kelley", "Spencer", "Hawkins", 
 ];
-
-const namesArray = [
-  "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson", "Walker", "Young", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores", "Green", "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", "Mitchell", "Carter", "Roberts", "Gomez", "Phillips", "Evans", "Turner", "Diaz", "Parker", "Cruz", "Edwards", "Collins", "Reyes", "Stewart", "Morris", "Morales", "Murphy", "Cook", "Rogers", "Gutierrez", "Ortiz", "Morgan", "Cooper", "Peterson", "Bailey", "Reed", "Kelly", "Howard", "Ramos", "Kim", "Cox", "Ward", "Richardson", "Watson", "Brooks", "Chavez", "Wood", "James", "Bennett", "Gray", "Mendoza", "Ruiz", "Hughes", "Price", "Alvarez", "Castillo", "Sanders", "Patel", "Myers", "Long", "Ross", "Foster", "Jimenez", "Arnold", "Pierce",  "Vazquez", "Hansen", "Peters", "Santos", "Hart", "Bradley", "Knight", "Elliott", "Cunningham", "Duncan", "Armstrong",  "Hudson", "Carroll", "Lane", "Riley", "Andrews", "Alvarado", "Ray", "Delgado", "Berry", "Perkins", "Hoffman", "Johnston", "Matthews", "Pena", "Richards", "Contreras", "Willis", "Carpenter", "Lawrence", "Sandoval", "Guerrero", "George", "Chapman", "Rios", "Estrada",  "Ortega", "Watkins", "Greene", "Nunez", "Wheeler", "Valdez", "Harper", "Burke", "Larson", "Santiago", "Maldonado", "Morrison", "Franklin", "Carlson", "Austin", "Dominguez", "Carr", "Lawson", "Jacobs", "Obrien", "Lynch", "Singh", "Vega", "Bishop", "Montgomery", "Oliver", "Jensen",  "Harvey", "Williamson", "Gilbert", "Dean", "Sims", "Espinoza", "Howell", "Li", "Wong", "Reid", "Hanson", "Le", "McCoy", "Garrett", "Burton", "Fuller", "Wang", "Weber", "Welch", "Rojas", "Lucas", "Marquez",  "Fields", "Park", "Yang", "Little", "Banks", "Padilla", "Day",  "Walsh", "Bowman", "Schultz", "Luna", "Fowler", "Mejia", "Davidson",  "Acosta", "Brewer", "May", "Holland", "Juarez", "Newman", "Pearson", "Curtis", "Cortez", "Douglas", "Schneider", "Joseph", "Barrett", "Navarro", "Figueroa", "Keller", "Avila", "Wade", "Molina", "Stanley", "Hopkins", "Campos", "Barnett", "Bates", "Chambers", "Caldwell", "Beck", "Lambert", "Miranda", "Byrd", "Craig", "Ayala", "Lowe",  "Frazier", "Powers", "Neal", "Leonard", "Gregory", "Carrillo", "Sutton", "Fleming", "Rhodes", "Shelton", "Schwartz", "Norris", "Jennings", "Watts", "Duran", "Walters", "Cohen", "McDaniel", "Moran", "Parks", "Steele", "Vaughn", "Becker", "Holt", "Deleon", "Barker", "Terry", "Hale", "Leon", "Hail", "Benson", "Haynes", "Horton", "Miles", "Lyons", "Pham", "Graves", "Bush", "Thornton", "Wolfe", "Warner", "Cabrera", "McKinney", "Mann", "Zimmerman", "Dawson", "Powell", "Jenkins", "Perry", "Russell", "Sullivan", "Bell", "Coleman", "Butler", "Henderson", "Barnes", "Gonzales", "Fisher", "Vasquez", "Simmons", "Romero", "Jordan", "Patterson", "Alexander", "Hamilton", "Graham", "Reynolds", "Griffin", "Wallace", "Moreno", "West", "Cole", "Hayes", "Bryant", "Herrera", "Gibson", "Ellis", "Tran", "Medina", "Aguilar", "Stevens", "Murray", "Ford", "Castro", "Marshall", "Owens", "Harrison", "Fernandez", "McDonald", "Woods", "Washington", "Kennedy", "Wells", "Vargas", "Henry", "Chen", "Freeman", "Webb", "Tucker", "Guzman", "Burns", "Crawford", "Olson", "Simpson", "Porter", "Hunter", "Gordon", "Mendez", "Silva", "Shaw", "Snyder", "Mason", "Dixon", "Munoz", "Hunt", "Hicks", "Holmes", "Palmer", "Wagner", "Black", "Robertson", "Boyd", "Rose", "Stone", "Salazar", "Fox", "Warren", "Mills", "Meyer", "Rice", "Schmidt", "Garza", "Daniels", "Ferguson", "Nichols", "Stephens", "Soto", "Weaver", "Ryan", "Gardner", "Payne","Grant", "Dunn", "Kelley", "Spencer", "Hawkins"
-];
-
 
 //array of common surname suffixes
 const suffixArray = [
-  'son', 'smith', 'ington', 'y', 'ie', 'man', 's', 'kins', 'kin', 'ken', 'sen', 'berg', 'stein', 'ski', 'sky', 'ez', 'e', 'es', 'ski', 'ing', 'to', 'ic', 'ik', 'ich', 'owicz', 'owski', 'ov', 'off', 'ev', 'in', 'ov', 'enko', 'uk', 'ak', 'an', 'ies', 'all', 'ard', 'bank', 'art', 'bury', 'by', 'bourn', 'burn', 'bury', 'borough', 'brough', 'brow', 'burg', 'burgh', 'beck', 'bert', 'born', 'bridge', 'brick', 'bourne', 'brier', 'brook', 'buck', 'burton', 'cock', 'dale', 'ell', 'ett', 'field', 'ford', 'forth', 'gate', 'ham', 'hard', 'hart', 'hill', 'horn', 'house', 'ings', 'lake', 'land', 'ley', 'lin', 'low', 'mond', 'more', 'miller', 'ner', 'nett', 'ott', 'rich', 'ricks', 'ridge', 'shaw', 'shire', 'inson', 'stone', 'strom', 'thal', 'ton', 'wald', 'ward', 'well', 'wick', 'win', 'wood', 'worth', 'wright'
+  'son', 'smith', 'man', 
+  'kins', 'kin', 'ken', 'sen', 'berg', 'stein', 
+  'ski', 'sky','to',
+];
+
+const vSuffix = [
+  'ell', 'ett', 'er', 'ar', 'enko', 'owicz', 'owski',
+  'ic', 'ik', 'ich', 'all', 'ard', 'uk', 'ak', 
+  'ov', 'off', 'ev', 'in', 'ov', 'art', 'ott',
+  'ies', 'inson', 'ez', 'es', 
+
+];
+
+const cSuffix = [
+  'bank', 
+  'bury', 'by', 
+  'bourn', 'burn', 'bury', 'brow', 'beck', 'bert', 'born', 'bridge', 'brick', 'bourne', 'brier', 'brook', 'buck', 'burton', 
+  'dale',
+  'field', 'ford', 'forth', 'gate', 'ham', 'hard', 'hart', 'hill', 'horn', 'house', 'lake', 'land', 
+  'ley', 'lin', 'low', 'mond', 'more', 'miller', 'ner', 'nett', 'rich', 'ricks', 'ridge', 'shaw', 'shire', 
+   'stone', 'strom', 'thal', 'ton', 'wald', 'ward', 'well', 'wick', 'win', 'wood', 'worth', 'wright'
+
+];
+
+const eSuffix = [
+  'bottom', 'cock', 'burg', 'burgh', 'borough', 'brough',  
+]
+
+const conjSuffix = [
+  'y', 'ie','ing','s','e','an', 'en', 'in', 'ings',
 ];
 
 //array of prefixes
 const prefixArray = [
-  'De', 'Der', 'El', 'Fitz', 'Kil', 'Le', 'Mac', 'Mc', "O'", 'Van', 'West'
+  'De', 'Der', 'El', 'Fitz', 'Kil', 'Le', 'Mac', 'Mc', "O'", 'Van', 'West', 'van der', 'von ', 'Over'
+];
+
+//array of stupid dipshit words for the funnies i hope
+const dumbBetweeners = [
+  'Soggy', 'Stink', 'Dingus', 'Poop', 'Boogers', 'Peepee', 'Butt', 'Anus', 'Butthole', 'Fart', 'Doodoo', 'Dingdong', 'Wiener', 'Flap', 'Juicy', 'Snot', 'Meat', 'Toot', 'Tit', 'Pee', 'Dingus', 'Dangus', 'Doodle', 'Boob', 'Bingle', 'Bongle',  'Hoot', 'Slap', 'Doofus', 'Gristle', 'Lard', 'Dump', 'Stick', 'Beef'
+];
+
+const sillyends = [
+  'muncher', 'eater', 'whizzer', 'pisser', 'farter', 'flipper', 'flaps', 'meat', 'pocket', 'flopper', 
+]
+
+const swears = [
+  'Fuck', 'Shit', 'Bitch', 'Bastard', 'Cunt', 'Ass', 'Asshole', 
 ];
 
 module.exports = { maleNames, femaleNames, unisexNames, prefixArray, suffixArray, surnameArray, namesArray}
