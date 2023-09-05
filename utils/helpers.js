@@ -72,6 +72,25 @@ const coinFlip = () => {
 };
 
 //functions to check last characters in strings
+const checkChars = (w) => {
+    const word = w;
+    let pattern = '';
+
+    for(let i = 0; i < word.length; i++) {
+        if(vowels.includes(word[i])) {
+            console.log(word[i], 'vowel');
+            pattern += 'v';
+        } else if(consonants.includes(word[i])) {
+            console.log(word[i], 'consonant');
+            pattern += 'c';
+        } else {
+            console.log(word[i], 'idk');
+        }
+    }
+    console.log(pattern);
+    return pattern;
+};
+
 
 const checkLast = (w) => {
     const last = w[w.length - 1];
@@ -158,4 +177,4 @@ const checkLastChars = (w) => {
 
 //generating titles and names funct will be found in their folders
 
-module.exports = {getRandomArrayItem, checkRepeats, randomDate, coinFlip, checkLast, dupes, checkArrays };
+module.exports = {getRandomArrayItem, checkRepeats, randomDate, coinFlip, checkLast, dupes, checkArrays, checkChars, checkLastChars };
