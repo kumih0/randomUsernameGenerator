@@ -1,4 +1,5 @@
 const {vowels, consonants, randomCons, randomVowel} = require('../utils/vowels-consonants');
+const {getRandomArrayItem, checkRepeats, dupes, } = require('../utils/helpers');
 //array of common surname suffixes
 const suffixArray = [
   'son', 'smith', 'man', 
@@ -50,3 +51,5 @@ const sillyends = [
 const swears = [
   'Fuck', 'Shit', 'Bitch', 'Bastard', 'Cunt', 'Ass', 'Asshole', 
 ];
+
+//random surname class constructor

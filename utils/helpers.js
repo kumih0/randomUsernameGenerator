@@ -1,3 +1,6 @@
+//importing arrays of vowels and consonants
+const {vowels, consonants } = require('./vowels-consonants');
+
 //creating general randomizing functions that are frequently used
 
 //random array item
@@ -68,7 +71,8 @@ const coinFlip = () => {
     return Math.floor(Math.random() * 2);
 };
 
-//functions to check last characters in string
+//functions to check last characters in strings
+
 const checkLast = (w) => {
     const last = w[w.length - 1];
     if(vowels.includes(last)) {
@@ -77,6 +81,74 @@ const checkLast = (w) => {
         return last, 'consonant';
     } else {
         return last, 'idk';
+    }
+};
+
+const checkLastChars = (w) => {
+    const last = {
+        value: w[w.length - 1], 
+        isVowel:{default: false}, 
+        isCons:{default: false}
+    };
+    const last2 = {
+        value: w[w.length - 2], 
+        isVowel:{ default: false}, 
+        isCons:{ default: false}
+    };
+    const last3 = {
+        value: w[w.length - 3], 
+        isVowel:{ default: false}, 
+        isCons:{ default: false}
+    };
+    //checking if cons or vowel, altho redundant to have both cons and v properties for char obj, make it easier for organization
+    if(vowels.includes(last)) {
+        console.log(last.value, 'vowel');
+        last.isVowel = true;
+    } else if(consonants.includes(last)) {
+        console.log(last.value, 'consonant');
+        last.isCons = true;
+    } else {
+        console.log(last.value, 'idk');
+    };
+
+    if(vowels.includes(last2)) {
+        console.log(last2.value, 'vowel');
+        last2.isVowel = true;
+    } else if(consonants.includes(last2)) {
+        console.log(last2.value, 'consonant');
+        last2.isCons = true;
+    } else {
+        console.log(last2.value, 'idk');
+    };
+
+    if(vowels.includes(last3)) {
+        console.log(last3.value, 'vowel');
+        last3.isVowel = true;
+    } else if(consonants.includes(last3)) {
+        console.log(last3.value, 'consonant');
+        last3.isCons = true;
+    } else {
+        console.log(last3.value, 'idk');
+    };
+
+    switch(true){
+        case last.isVowel:
+            console.log('vowel last');
+            return lastVowel = true;
+        case last.isCons && last2.isCons:
+            console.log('double cons');
+            return doubleCons = true;
+        case last.isCons && last2.isVowel && last3.isVowel:
+            console.log('double vowel');
+            return doubleVowel = true;
+        case last.isCons && last2.isVowel:
+            console.log('single cons');
+            if(last.value ==='s' && last2.value === 'u') {
+                console.log('-us ending');
+                return usEnding = true;
+            } else {
+                return singleCons = true;
+            }
     }
 };
 
