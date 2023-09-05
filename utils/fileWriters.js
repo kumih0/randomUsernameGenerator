@@ -2,7 +2,7 @@ const fs = require('fs');
 
 //sep file writers for each file type
 const json = (funct, fname) => {
-    fs.writeFile(`../results/${fname}.json`, JSON.stringify(funct), (err) => {
+    fs.writeFile(`../results/${fname}.json`, JSON.stringify(funct, null, 2), (err) => {
         if (err) throw err;
         console.log('json file saved');
     });
@@ -16,14 +16,14 @@ const txt = (funct, fname) => {
 };
 
 const js = (funct, fname) => {
-    fs.writeFile(`../results/${fname}.js`, `const ${fname} = ${JSON.stringify(funct)}; module.exports = ${fname};`, (err) => {
+    fs.writeFile(`../results/${fname}.js`, `const ${fname} = ${JSON.stringify(funct, null, 2)}; module.exports = ${fname};`, (err) => {
         if (err) throw err;
         console.log('js file saved');
     });
 };
 
 const csv = (funct, fname) => {
-    fs.writeFile(`../results/${fname}.csv`, funct.join(','), (err) => {
+    fs.writeFile(`../results/${fname}.csv`, funct.join(', \n'), (err) => {
         if (err) throw err;
         console.log('csv file saved');
     });

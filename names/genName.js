@@ -1,5 +1,26 @@
 const { maleNames, femaleNames, unisexNames, surnameArray } = require('./randomName');
-const { getRandomArrayItem, checkRepeats } = require('../utils/helpers');
+const { getRandomArrayItem, checkRepeats, checkChars } = require('../utils/helpers');
+const fs = require('fs');
+
+//creating patterns for names
+const namePatterns = (array) => {
+    let patterns = '';
+    array.forEach((item) => {
+        const pattern = checkChars(item);
+        patterns += `${item}: ${pattern}\n`;
+    });
+return patterns;
+};
+
+const mPatt = namePatterns(maleNames);
+const fPatt = namePatterns(femaleNames);
+const sPatt = namePatterns(surnameArray);
+
+// fs.writeFile(`../results/namePatterns.txt`, `Male Names: \n ${mPatt} \n Female Names: \n ${fPatt} \n Surnames: \n ${sPatt}`, (err) => {
+//     if (err) throw err;
+//     console.log('patterns saved');
+// });
+
 
 //generate first name
 const generateRandomGivenName = (type) => {

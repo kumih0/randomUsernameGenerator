@@ -73,7 +73,7 @@ const coinFlip = () => {
 
 //functions to check last characters in strings
 const checkChars = (w) => {
-    const word = w;
+    const word = w.toLowerCase();
     let pattern = '';
 
     for(let i = 0; i < word.length; i++) {
