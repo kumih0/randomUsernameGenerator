@@ -23,6 +23,11 @@ fs.writeFile('../results/fnamepatt.js', `const fnamepatt = ${JSON.stringify(fPat
     console.log('patterns saved');
 });
 
+fs.writeFile('../results/mnamepatt.js', `const mnamepatt = ${JSON.stringify(mPatt, null, 2)}; \n \n module.exports = mnamepatt;`, (err) => {
+    if (err) throw err;
+    console.log('patterns saved');
+});
+
 // fs.writeFile(`../results/namePatterns.txt`, `Male Names: \n ${mPatt} \n Female Names: \n ${fPatt} \n Surnames: \n ${sPatt}`, (err) => {
 //     if (err) throw err;
 //     console.log('patterns saved');
