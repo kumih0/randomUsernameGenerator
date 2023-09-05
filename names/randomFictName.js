@@ -1,4 +1,5 @@
-const { getRandomArrayItem, checkRepeats } = '../utils/helpers';
+const { getRandomArrayItem, checkRepeats } = require('../utils/helpers');
+const { vowels, consonants, randomCons, randomVowel } = require('../utils/vowels-consonants');
 
 //array of common words used in fantasy names etc.
 const rpNameArray = [
@@ -91,36 +92,53 @@ const rpNameArray = [
     'gold',
 ];
 
-//array of vowels
-const vowels = [
-    'a', 'e', 'i', 'o', 'u', 'y'
-];
+// //language rules and name structure defined below for my made up language/names that seem close but aren't anything
+// const createName = () => {
+//     let name = '';
+//     //make the length of name random under 10 letters
+//     const randomLength = Math.floor(Math.random() * 10 + 1);
 
-//array of consonants
-const consonants = [
-    'q', 'w', 'r', 't', 'p', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'
-];
-
-//generate random consonant
-const randomCons = () => {
-return getRandomArrayItem(consonants);
-};
-
-//generate random vowel
-const randomVowel = () => {
-return getRandomArrayItem(vowels);
-};
-
-//language rules and name structure defined below for my made up language/names that seem close but aren't anything
-const createName = () => {
-    let name = '';
-    //make the length of name random under 10 letters
-    const randomLength = Math.floor(Math.random() * 10 + 1);
-
-    //randomly select letters based on length
-    for(let i=0; i<randomLength; i++) {
+//     //randomly select letters based on length
+//     for(let i=0; i<randomLength; i++) {
         
-    }
+//     }
 
     
-}
+// }
+
+//creating constructor function for made up fictional name
+//class for creating random names
+// class RandomName {
+//     constructor() {
+//         this.name = '';
+//         this.length = Math.floor(Math.random() * 10 + 1);
+//         this.vowels = vowels;
+//         this.consonants = consonants;
+//     }
+
+//     //generate random consonant
+//     randomCons() {
+//         return getRandomArrayItem(this.consonants);
+//     };
+
+//     //generate random vowel
+//     randomVowel() {
+//         return getRandomArrayItem(this.vowels);
+//     };
+
+//     //generate random name
+//     createName() {
+//         let name = '';
+//         //randomly select letters based on length
+//         for(let i=0; i<this.length; i++) {
+//             if(i === 0) {
+//                 name += this.randomCons();
+//             } else if(i === this.length - 1) {
+//                 name += this.randomVowel();
+//             } else {
+//                 name += this.randomCons();
+//             }
+//         }
+//         return name;
+//     }
+// };
