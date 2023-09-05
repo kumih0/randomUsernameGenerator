@@ -16,7 +16,7 @@ const txt = (funct, fname) => {
 };
 
 const js = (funct, fname) => {
-    fs.writeFile(`../results/${fname}.js`, `const ${fname} = ${JSON.stringify(funct, null, 2)}; module.exports = ${fname};`, (err) => {
+    fs.writeFile(`../results/${fname}.js`, `const ${fname} = ${JSON.stringify(funct, null, 2)}; \n \n module.exports = ${fname};`, (err) => {
         if (err) throw err;
         console.log('js file saved');
     });

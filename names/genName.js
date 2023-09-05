@@ -4,10 +4,10 @@ const fs = require('fs');
 
 //creating patterns for names
 const namePatterns = (array) => {
-    let patterns = '';
+    const patterns = [];
     array.forEach((item) => {
         const pattern = checkChars(item);
-        patterns += `${item}: ${pattern}\n`;
+        patterns.push(pattern);
     });
 return patterns;
 };
@@ -15,6 +15,13 @@ return patterns;
 const mPatt = namePatterns(maleNames);
 const fPatt = namePatterns(femaleNames);
 const sPatt = namePatterns(surnameArray);
+
+console.log(fPatt);
+
+fs.writeFile('../results/fnamepatt.js', `const fnamepatt = ${JSON.stringify(fPatt, null, 2)}; \n \n module.exports = fnamepatt;`, (err) => {
+    if (err) throw err;
+    console.log('patterns saved');
+});
 
 // fs.writeFile(`../results/namePatterns.txt`, `Male Names: \n ${mPatt} \n Female Names: \n ${fPatt} \n Surnames: \n ${sPatt}`, (err) => {
 //     if (err) throw err;
