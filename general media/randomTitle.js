@@ -50,4 +50,19 @@ const makeItPosessive = (w) => {
     return w + "'s";
 };
 
+//funct to check if word is prep or art
+const articleOrPrep = (w) => {
+    let result;
     
+    switch (w) {
+    case articles.includes(w):
+        return result="a";
+    case prepositions.includes(w):
+        return result="p";
+    default:
+        return result = false;
+    };
+};
+
+
+        
