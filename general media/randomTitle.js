@@ -2,6 +2,7 @@
 const randomAdjectiveArray = require('../usernames/randomAdjective');
 const randomNounArray = require('../usernames/randomNoun');
 const { getRandomArrayItem, coinFlip, stringIt } = require('../utils/helpers');
+const { vowels } = require('../utils/vowels-consonants');
 
 //creating formula for titles of movies, books etc.
 const articles = [
@@ -23,7 +24,6 @@ const places = [
     "pool", "toilet", "room", "library",
 ];
 
-
 const prepositions = [
     "for", "to", "of", "in", "by", "above", "below", "with", "without", "on", "onto", "into", "around", "about", "across", "towards", "against", "along", "among", "before",
     "behind", "beside", "from", "beneath", "between", "down", "under", "over", "near", "off", "within",
@@ -36,8 +36,9 @@ const dramAd = [
 const makeItPlural = (w) => {
     const word = Array.from(w);
     const lastChar = w[w.length - 1];
+    const last2Char = w[w.length - 2];
 
-    if (lastChar === "y") {
+    if (lastChar === "y" && !(vowels.includes(last2Char))) {
         word.pop();
         word.push("ies");
 
@@ -67,9 +68,10 @@ const articleOrPrep = (w) => {
     };
 };
 
+
 //checking if the fn work
 //console.log(articleOrPrep("with"));
 
-console.log(makeItPlural("fart"), makeItPlural(getRandomArrayItem(randomNounArray)));
+console.log(makeItPlural("journey"), makeItPlural(getRandomArrayItem(randomNounArray)));
 
-console.log(makeItPosessive("butcher"));
+// console.log(makeItPosessive("butcher"));
