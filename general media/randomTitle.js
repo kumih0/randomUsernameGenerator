@@ -1,3 +1,7 @@
+//importing my random adjectives and nouns arrays
+const randomAdjectiveArray = require('../usernames/randomAdjective');
+const randomNounArray = require('../usernames/randomNoun');
+
 //creating formula for titles of movies, books etc.
 const articles = [
     "the", "a", "an",
@@ -10,14 +14,13 @@ const mysNoun = [
 
 ];
 
-const place = [
+const places = [
     "world", "land", "sea", "ocean", "beach", "place", "city", "country", "town", "coast", "valley", "mountain", "forest",
     "village", "river", "creek", "lake", "wood", "jungle", "street", "hill", "field", "beach", "garden", "meadow", "road",
     "house", "building", "apartment", "cabin", "farm", "home", "office", "barn", "prison", "jail", "church", "shop", "store",
     "downtown", "uptown", "basement", "closet", "kitchen", "bedroom", "bathroom", "shower", "camp", "school", "class", "gym",
     "pool", "toilet", "room", "library",
 ];
-
 
 
 const prepositions = [
@@ -52,14 +55,18 @@ const makeItPosessive = (w) => {
 
 //funct to check if word is prep or art
 const articleOrPrep = (w) => {
-    switch (w) {
-        case articles.includes(w):
-            return result = "a";
-        case prepositions.includes(w):
-            return result = "p";
-        default:
-            return result = false;
-    };
+    let result;
+    if (articles.includes(w)) {
+        return result = "article";
+    } else if (prepositions.includes(w)) {
+        return result = "preposition";
+    }
+    else {
+        return result = "wtf";
+    }
+
 };
 
+//checking if the fn work
 
+console.log(articleOrPrep("the"));
