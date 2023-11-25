@@ -177,4 +177,9 @@ const checkLastChars = (w) => {
 
 //generating titles and names funct will be found in their folders
 
-module.exports = {getRandomArrayItem, checkRepeats, randomDate, coinFlip, checkLast, dupes, checkArrays, checkChars, checkLastChars };
+//flatten array back to string
+const stringIt = (array) => {
+    return array.toString().replace(/,/g, '');
+};
+
+module.exports = {getRandomArrayItem, checkRepeats, randomDate, coinFlip, checkLast, dupes, checkArrays, checkChars, checkLastChars, stringIt };

@@ -1,6 +1,7 @@
 //importing my random adjectives and nouns arrays
 const randomAdjectiveArray = require('../usernames/randomAdjective');
 const randomNounArray = require('../usernames/randomNoun');
+const { getRandomArrayItem, coinFlip, stringIt } = require('../utils/helpers');
 
 //creating formula for titles of movies, books etc.
 const articles = [
@@ -33,19 +34,20 @@ const dramAd = [
 ];
 
 const makeItPlural = (w) => {
+    const word = Array.from(w);
     const lastChar = w[w.length - 1];
 
     if (lastChar === "y") {
-        w.pop();
-        w.push("ies");
+        word.pop();
+        word.push("ies");
 
-        console.log(w);
-        return w;
+        console.log(word);
+        return stringIt(word);
     } else {
-        w.push("s");
+        word.push("s");
 
-        console.log(w);
-        return w;
+        console.log(word);
+        return stringIt(word);
     };
 };
 
@@ -60,13 +62,14 @@ const articleOrPrep = (w) => {
         return result = "article";
     } else if (prepositions.includes(w)) {
         return result = "preposition";
-    }
-    else {
+    } else {
         return result = "wtf";
-    }
-
+    };
 };
 
 //checking if the fn work
+//console.log(articleOrPrep("with"));
 
-console.log(articleOrPrep("the"));
+console.log(makeItPlural("fart"), makeItPlural(getRandomArrayItem(randomNounArray)));
+
+console.log(makeItPosessive("butcher"));
