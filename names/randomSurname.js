@@ -41,15 +41,17 @@ const prefixArray = [
 
 //array of stupid dipshit words for the funnies i hope
 const dumbBetweeners = [
-  'Soggy', 'Stink', 'Dingus', 'Poop', 'Boogers', 'Peepee', 'Butt', 'Anus', 'Butthole', 'Fart', 'Doodoo', 'Dingdong', 'Wiener', 'Flap', 'Juicy', 'Snot', 'Meat', 'Toot', 'Tit', 'Pee', 'Dingus', 'Dangus', 'Doodle', 'Boob', 'Bingle', 'Bongle',  'Hoot', 'Slap', 'Doofus', 'Gristle', 'Lard', 'Dump', 'Stick', 'Beef'
+  'Soggy', 'Stink', 'Dingus', 'Poop', 'Boogers', 'Peepee', 'Butt', 'Anus', 'Butthole', 'Fart', 'Doodoo', 'Dingdong', 'Wiener', 'Flap', 'Juicy', 'Snot', 'Meat', 'Toot', 'Tit', 'Pee', 'Dingus', 'Dangus', 'Doodle', 
+  'Boob', 'Bingle', 'Bongle',  'Hoot', 'Slap', 'Doofus', 'Gristle', 'Lard', 'Dump', 'Stick', 'Beef', 'Barf', 'Vomit', 'Puke', 'Pants', 'Undies', 'Socks',
+  'Whizz', 'Rip', 'Winkle', 'Tinkle', 'Boodle', 'Noodle', 'Toodle', 'Whisker', 'Lazy', 'Barnacle', 'Plink', 'Plonk', 'Waddle', 'Hurple', 'Chortle', 'Nipple', 'Gnarly', 'Dude', 'Booty', 
 ];
 
 const sillyends = [
-  'muncher', 'eater', 'whizzer', 'pisser', 'farter', 'flipper', 'flaps', 'meat', 'pocket', 'flopper', 
+  'muncher', 'eater', 'whizzer', 'pisser', 'farter', 'flipper', 'flaps', 'meat', 'pocket', 'flopper', 'licker', 
 ]
 
 const swears = [
-  'Fuck', 'Shit', 'Bitch', 'Bastard', 'Cunt', 'Ass', 'Asshole', 
+  'Fuck', 'Shit', 'Bitch', 'Bastard', 'Cunt', 'Ass', 'Asshole', '
 ];
 
 //random surname class constructor
