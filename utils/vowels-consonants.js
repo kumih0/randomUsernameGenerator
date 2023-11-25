@@ -1,3 +1,5 @@
+const getRandomArrayItem = require('./helpers');
+
 //array of vowels
 const vowels = [
     'a', 'e', 'i', 'o', 'u', 'y'

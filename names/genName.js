@@ -116,7 +116,7 @@ const assessPatterns = (array) => {
         return getRandomArrayItem(nameArray);
     };
 
-    //generatiung last name
+    //generating last name
     const generateRandomSurname = () => {
         return getRandomArrayItem(surnameArray);
     };
@@ -128,4 +128,6 @@ const assessPatterns = (array) => {
 
     //generating a list of full names
     const generateRandomNameList = (num) => {
+
     };
+};
