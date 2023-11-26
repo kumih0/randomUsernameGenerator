@@ -182,7 +182,7 @@ const titleGenerator = () => {
 
 titleGenerator();
 
-//NOTES: work on ^^^ above title generator sequence, simply by using held value random words to create titles and then substitute as needed
+//TODO: work on ^^^ above title generator sequence, simply by using held value random words to create titles and then substitute as needed
 //issues cont. with larger username noun and adj arrays
 //select mysnouns and places first supplement w others
 //exclude nounarray?? go through other arrays and sort out verbs
@@ -236,7 +236,7 @@ const betterTitleGenerator = () => {
         title.push(startWvowel());
     } else {
         //if last index not an, pick second word 
-        const secondWord = coinFlip(randomAdjective, randomNoun, randomMysNoun, randomPlace);
+        const secondWord = coinFlip(randomAdjective, randomMysNoun, randomPlace);
         console.log(secondWord);
 
         //check if second word starts with vowel and switch article properly
@@ -244,6 +244,7 @@ const betterTitleGenerator = () => {
             title.pop();
             title.push(coinFlip('an', 'the'));
             title.push(secondWord);
+            //TODO: something is going wrong with adjectives...
         } else if (randomAdjectiveArray.includes(secondWord)) {
             //if second word is adj, push it and push random noun/place
             title.push(secondWord);
@@ -255,25 +256,25 @@ const betterTitleGenerator = () => {
 
         //check the last index again
         checkLastIndex();
+        //TODO: possessive is fucking up, single quote double quote issue??
+        // //coinflip if it's possessive
+        // const isPossessive = coinFlip(true, false);
+        // console.log(isPossessive);
 
-        //coinflip if it's possessive
-        const isPossessive = coinFlip(true, false);
-        console.log(isPossessive);
+        // if (isPossessive) {
+        //     title.pop();
+        //     title.push(makeItPosessive(lastIndex));
 
-        if (isPossessive) {
-            title.pop();
-            title.push(makeItPosessive(lastIndex));
-
-            //add adjective?
-            // const addAdj = coinFlip(true, false);
-            // console.log(addAdj);
-            // if (addAdj) {
-            //     title.push(getRandomArrayItem(randomAdjectiveArray));
-            // }
-            addAdj();
-            //push noun
-            title.push(getRandomArrayItem(randomNounArray));
-        };
+        //     //add adjective?
+        //     // const addAdj = coinFlip(true, false);
+        //     // console.log(addAdj);
+        //     // if (addAdj) {
+        //     //     title.push(getRandomArrayItem(randomAdjectiveArray));
+        //     // }
+        //     addAdj();
+        //     //push noun
+        //     title.push(getRandomArrayItem(randomNounArray));
+        // };
 
         //coinflip on adding preposition
         const addPrep = coinFlip(true, false);
