@@ -188,6 +188,8 @@ titleGenerator();
 //exclude nounarray?? go through other arrays and sort out verbs
 //utilize prep article formula
 //break down into smaller modular functions (checking last index if adjective, noun, etc., article)
+//should be:
+// (prep) + article + (adj) + noun (pl/ >poss> <adj--noun>) + prep + art + (adj) + noun (pl/ >poss> (adj--noun)) ex. "Beyond the Secrets of the Deep" 
 const betterTitleGenerator = () => {
     let title = [];
     let lastIndex;
