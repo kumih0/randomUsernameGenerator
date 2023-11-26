@@ -68,10 +68,28 @@ const articleOrPrep = (w) => {
     };
 };
 
+//pseudo code
+//function: article + adjective + noun + preposition + article + adjective + noun
+//basic function: coin flip on using article or preposition, then coin flip on using adjective or noun, if noun, then coin flip on using plural, possessive, or singluar, if adj, then random noun, then coin flip on using plural, possessive, or singluar, then if article chosen first, use preposition, 
+//if preposition first, follow with article
+//if article is the, then plural works if a/an can't be plural
+
+const titleGenerator = () => {
+    let title = [];
+    const randomArticle = getRandomArrayItem(articles);
+    const randomPrep = getRandomArrayItem(prepositions);
+    const randomAdjective = getRandomArrayItem(randomAdjectiveArray);
+    const randomNoun = getRandomArrayItem(randomNounArray);
+    const randomMysNoun = getRandomArrayItem(mysNoun);
+    const randomPlace = getRandomArrayItem(places);
+
+    
+
+
 
 //checking if the fn work
 //console.log(articleOrPrep("with"));
 
-console.log(makeItPlural("journey"), makeItPlural(getRandomArrayItem(randomNounArray)));
+// console.log(makeItPlural("journey"), makeItPlural(getRandomArrayItem(randomNounArray)));
 
 // console.log(makeItPosessive("butcher"));

@@ -67,8 +67,14 @@ const randomDate = () => {
     return date;
 };
 
-const coinFlip = () => {
-    return Math.floor(Math.random() * 2);
+//coinFLip accepts 2 values for heads and tails, returns either randomly 
+const coinFlip = (x, y) => {
+    const flip = Math.floor(Math.random() * 2);
+    if(flip == 1){
+        return x;
+    } else {
+        return y;
+    }
 };
 
 //functions to check last characters in strings
