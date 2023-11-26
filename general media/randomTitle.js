@@ -1,7 +1,7 @@
 //importing my random adjectives and nouns arrays
 const randomAdjectiveArray = require('../usernames/randomAdjective');
 const randomNounArray = require('../usernames/randomNoun');
-const { getRandomArrayItem, coinFlip, stringIt } = require('../utils/helpers');
+const { getRandomArrayItem, coinFlip, stringIt, russianRoulette } = require('../utils/helpers');
 const { vowels } = require('../utils/vowels-consonants');
 
 //creating formula for titles of movies, books etc.
@@ -68,6 +68,16 @@ const articleOrPrep = (w) => {
     };
 };
 
+//check article for plural
+const pluralCheck = (w) => {
+    let result;
+    if(w === "the") {
+        return result = true;
+    } else {
+        return false;
+    };
+};
+
 //pseudo code
 //function: article + adjective + noun + preposition + article + adjective + noun
 //basic function: coin flip on using article or preposition, then coin flip on using adjective or noun, if noun, then coin flip on using plural, possessive, or singluar, if adj, then random noun, then coin flip on using plural, possessive, or singluar, then if article chosen first, use preposition, 
@@ -83,7 +93,9 @@ const titleGenerator = () => {
     const randomMysNoun = getRandomArrayItem(mysNoun);
     const randomPlace = getRandomArrayItem(places);
 
+    // const firstWord = coinFlip(randomArticle, randomPrep);
     
+    //first word choice 
 
 
 

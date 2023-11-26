@@ -77,6 +77,25 @@ const coinFlip = (x, y) => {
     }
 };
 
+//russian roulette accepts six values and returns random choice
+const russianRoulette = (a, b, c, d, e, f) => {
+    const chamber = Math.floor(Math.random() * 6);
+    switch(chamber) {
+        case 0:
+            return a;
+        case 1:
+            return b;
+        case 2:
+            return c;
+        case 3:
+            return d;
+        case 4:
+            return e;
+        case 5:
+            return f;
+    }
+};
+
 //functions to check last characters in strings
 const checkChars = (w) => {
     const word = w.toLowerCase();
@@ -188,4 +207,4 @@ const stringIt = (array) => {
     return array.toString().replace(/,/g, '');
 };
 
-module.exports = {getRandomArrayItem, checkRepeats, randomDate, coinFlip, checkLast, dupes, checkArrays, checkChars, checkLastChars, stringIt };
+module.exports = {getRandomArrayItem, checkRepeats, randomDate, coinFlip, checkLast, dupes, checkArrays, checkChars, checkLastChars, stringIt, russianRoulette };
