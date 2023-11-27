@@ -90,6 +90,19 @@ const isNoun = (w) => {
     };
 };
 
+//mini fn to assess if can be plural or already plural
+const canMakePlural = (w) => {
+    const lastChar = w[w.length-1];
+    switch (w) {
+        case (isNoun(w) && lastChar !== 's'):
+            return true;
+        case (isNoun(w) && lastChar == 's'):
+            return false;
+        case (!(isNoun(w))):
+            return false;
+    };
+};
+
 //check if article is an
 const anCheck = (w) => {
     if (w === "an") {
@@ -110,8 +123,8 @@ const isStartVowel = (w) => {
 
 //mini function for picking a random noun, adjective, etc., and re-running until it has a vowel as the first letter
 const startWvowel = () => {
-    let w = getRandomArrayItem(randomNounArray.concat(randomAdjectiveArray, places, mysNoun));
-    if (isStartVowel(w) == true) {
+    const w = getRandomArrayItem(randomNounArray.concat(randomAdjectiveArray, places, mysNoun));
+    if (isStartVowel(w)) {
         console.log(w);
         return w;
     } else {
@@ -139,7 +152,7 @@ const titleGenerator = () => {
     const firstWord = russianRoulette(randomArticle, randomPrep, randomAdjective, randomNoun, randomMysNoun, randomPlace);
 
     //check if first word is adj, noun, place, and add a random article or preposition
-    if (articleOrPrep(firstWord) === 'wtf') {
+    if (articleOrPrep(firstWord) == 'wtf') {
         title.push(coinFlip(getRandomArrayItem(articles), getRandomArrayItem(prepositions)));
     };
 
