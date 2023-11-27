@@ -4,8 +4,6 @@ const randomNounArray = [
     'albatross',
     'alligator',
     'alpaca',
-    'asshole',
-    'ass',
     'apple',
     'alley',
     'artist',
@@ -22,10 +20,8 @@ const randomNounArray = [
     'bucket',
     'bicycle',
     'butt',
-    'boy',
     'butthole',
-    'bastard',
-    'bitch',
+    'boy',
     'box',
     'boat',
     'bed',
@@ -401,8 +397,6 @@ const randomNounArray = [
     'taste',
     'talent',
     'tribute',
-    'titty',
-    'titties',
     'trunk',
     'trance',
     'tatas',
@@ -460,6 +454,16 @@ const randomNounArray = [
     'zap',
     'zebra',
     'zombie'
+];
+
+const badWords = [
+    'asshole',
+    'ass',
+
+    'bastard',
+    'bitch',
+    'titty',
+    'titties',
 ];
 
 module.exports = randomNounArray;

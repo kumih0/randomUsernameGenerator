@@ -60,21 +60,31 @@ const makeItPosessive = (w) => {
 
 //funct to check if word is prep or art
 const articleOrPrep = (w) => {
-    let result;
-    if (articles.includes(w)) {
-        return result = "article";
-    } else if (prepositions.includes(w)) {
-        return result = "preposition";
-    } else {
-        return result = "wtf";
+    switch (w) {
+        case (articles.includes(w)):
+            return result = "article";
+        case (prepositions.includes(w)):
+            return result = "preposition";
+        default:
+            return result = "wtf";
     };
 };
 
 //check article for plural
 const pluralCheck = (w) => {
-    let result;
     if (w === "the") {
-        return result = true;
+        return true;
+    } else {
+        return false;
+    };
+};
+
+//mini fn to check if noun
+const isNoun = (w) => {
+    const bigNounBank = randomNounArray.concat(mysNoun, places);
+
+    if (bigNounBank.includes(w)) {
+        return true;
     } else {
         return false;
     };
@@ -82,9 +92,8 @@ const pluralCheck = (w) => {
 
 //check if article is an
 const anCheck = (w) => {
-    let result;
     if (w === "an") {
-        return result = true;
+        return true;
     } else {
         return false;
     };
@@ -92,9 +101,8 @@ const anCheck = (w) => {
 
 //mini fn checking if start w vowel
 const isStartVowel = (w) => {
-    let result;
     if (vowels.includes(w[0])) {
-        return result = true;
+        return true;
     } else {
         return false;
     };
@@ -103,7 +111,7 @@ const isStartVowel = (w) => {
 //mini function for picking a random noun, adjective, etc., and re-running until it has a vowel as the first letter
 const startWvowel = () => {
     let w = getRandomArrayItem(randomNounArray.concat(randomAdjectiveArray, places, mysNoun));
-    if (vowels.includes(w[0])) {
+    if (isStartVowel(w) == true) {
         console.log(w);
         return w;
     } else {
