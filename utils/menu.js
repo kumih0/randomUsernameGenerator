@@ -75,6 +75,12 @@ const usernamePrompts = [
     },
     {
         type: 'confirm',
+        name: 'dookiewords',
+        message: 'include swears and dookie words?',
+        default: true,
+    },
+    {
+        type: 'confirm',
         name: 'printfile',
         message: 'print the results into a file?',
         default: true,

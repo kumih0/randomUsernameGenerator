@@ -499,7 +499,7 @@ const nouns = [
 ];
 
 //funny but possibly eyebrow raising nouns
-const dookieWords = [
+const dookieNouns = [
     'asshole',
     'anus',
     'ass',
@@ -543,4 +543,4 @@ const dookieWords = [
     'wiener',
 ];
 
-module.exports = { nouns, dookieWords };
+module.exports = { nouns, dookieNouns };
