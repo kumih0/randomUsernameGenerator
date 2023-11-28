@@ -5,6 +5,7 @@ const adjectives = [
     'arrogant',
     'arbritrary',
     'american',
+    'awesome',
     'angry',
     'african',
     'arboreal',
@@ -438,6 +439,8 @@ const adjectives = [
     'unruly',
     'useless',
     'useful',
+    'upset',
+    'undeniable',
     'uptight',
     'unpredictable',
     'unusual',
@@ -491,8 +494,8 @@ const dookieAdj = [
     'farting',
     'farty',
     'fuckable',
-    'fucking',
-    'fucked',
+    // 'fucking',
+    // 'fucked',
     'gassy',
     'gay',
     'goddamn',
@@ -526,5 +529,6 @@ const dookieAdj = [
     'slutty',
     'shitty',
     'xenophobic',
-
 ];
+
+module.exports = { adjectives, dookieAdj };
