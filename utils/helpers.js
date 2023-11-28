@@ -202,7 +202,7 @@ const checkLastChars = (w) => {
 
 //generating titles and names funct will be found in their folders
 
-//flatten array back to string
+//flatten array back to string, removing separators
 const stringIt = (array) => {
     return array.toString().replace(/,/g, '');
 };

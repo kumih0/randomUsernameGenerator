@@ -1,5 +1,4 @@
 //importing my random adjectives and nouns arrays
-const { get } = require('http');
 const randomAdjectiveArray = require('../usernames/randomAdjective');
 const randomNounArray = require('../usernames/randomNoun');
 const { getRandomArrayItem, coinFlip, stringIt, russianRoulette } = require('../utils/helpers');
@@ -94,14 +93,16 @@ const isNoun = (w) => {
 const canMakePlural = (w) => {
     const lastChar = w[w.length-1];
     switch (w) {
-        case (isNoun(w) && lastChar !== 's'):
+        case (isNoun(w) && lastChar !== "s"):
             return true;
-        case (isNoun(w) && lastChar == 's'):
+        case (isNoun(w) && lastChar == "s"):
             return false;
         case (!(isNoun(w))):
             return false;
     };
 };
+
+
 
 //check if article is an
 const anCheck = (w) => {
@@ -152,19 +153,19 @@ const titleGenerator = () => {
     const firstWord = russianRoulette(randomArticle, randomPrep, randomAdjective, randomNoun, randomMysNoun, randomPlace);
 
     //check if first word is adj, noun, place, and add a random article or preposition
-    if (articleOrPrep(firstWord) == 'wtf') {
+    if (articleOrPrep(firstWord) == "wtf") {
         title.push(coinFlip(getRandomArrayItem(articles), getRandomArrayItem(prepositions)));
     };
 
     //if first index is preposition, then add article
-    if (articleOrPrep(title[0]) === 'preposition') {
+    if (articleOrPrep(title[0]) === "preposition") {
         title.push(getRandomArrayItem(articles));
     };
 
     //if firstword is article, push; if prep, push and add article
-    if (articleOrPrep(firstWord) === 'article') {
+    if (articleOrPrep(firstWord) === "article") {
         title.push(firstWord);
-    } else if (articleOrPrep(firstWord) === 'preposition') {
+    } else if (articleOrPrep(firstWord) === "preposition") {
         title.push(firstWord);
         title.push(getRandomArrayItem(articles));
     };
@@ -235,9 +236,9 @@ const betterTitleGenerator = () => {
     console.log(firstWord);
 
     //check if article or prep
-    if (articleOrPrep(firstWord) === 'article') {
+    if (articleOrPrep(firstWord) === "article") {
         title.push(firstWord);
-    } else if (articleOrPrep(firstWord) === 'preposition') {
+    } else if (articleOrPrep(firstWord) === "preposition") {
         //if prep, push and add article
         title.push(firstWord);
         title.push(getRandomArrayItem(articles));
@@ -263,7 +264,7 @@ const betterTitleGenerator = () => {
         //check if second word starts with vowel and switch article properly
         if (isStartVowel(secondWord)) {
             title.pop();
-            title.push(coinFlip('an', 'the'));
+            title.push(coinFlip("an", "the"));
             title.push(secondWord);
             //TODO: something is going wrong with adjectives...
         } else if (randomAdjectiveArray.includes(secondWord)) {
