@@ -100,10 +100,11 @@ generateRandomName();
 // const usernames = () => {
 //     inquirer.prompt(usernamePrompts).then((answers) => {
 //         console.log(answers);
+//         const dookieWords = answers.dookiewords;
 //         const num = answers.howmany;
 //         const filetype = answers.filetype;
-//         const genUsername = generateRandomUsername();
-//         const genList = generateRandomUsernameList(num);
+//         const genUsername = generateRandomUsername(dookieWords);
+//         const genList = generateRandomUsernameList(dookieWords, num);
 
 //         switch (answers.usernames) {
 //             case 'just one pls':
