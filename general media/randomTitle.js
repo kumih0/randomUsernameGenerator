@@ -1,12 +1,17 @@
-//importing my random adjectives and nouns arrays
-const randomAdjectiveArray = require('../usernames/randomAdjective');
-const randomNounArray = require('../usernames/randomNoun');
-const { getRandomArrayItem, coinFlip, stringIt, russianRoulette } = require('../utils/helpers');
+//importing necesary helper functions and arrays
+const { nouns, dookieNouns } = require('../utils/randomNounList');
+const { adjectives, dookieAdj } = require('../utils/randomAdjectiveList');
 const { vowels } = require('../utils/vowels-consonants');
+const { getRandomArrayItem, coinFlip, stringIt, russianRoulette } = require('../utils/helpers');
 
 //creating formula for titles of movies, books etc.
 const articles = [
     "the", "a", "an",
+];
+
+const prepositions = [
+    "for", "to", "of", "in", "by", "above", "below", "with", "without", "on", "onto", "into", "around", "about", "across", "towards", "against", "along", "among", "before",
+    "behind", "beside", "from", "beneath", "between", "down", "under", "over", "near", "off", "within",
 ];
 
 const mysNoun = [
@@ -23,11 +28,6 @@ const places = [
     "house", "building", "apartment", "cabin", "farm", "home", "office", "barn", "prison", "jail", "church", "shop", "store",
     "downtown", "uptown", "basement", "closet", "kitchen", "bedroom", "bathroom", "shower", "camp", "school", "class", "gym",
     "pool", "toilet", "room", "library", "keep", "tower", "castle", "palace", "temple", "cathedral", "cave", "tunnel", "mine",
-];
-
-const prepositions = [
-    "for", "to", "of", "in", "by", "above", "below", "with", "without", "on", "onto", "into", "around", "about", "across", "towards", "against", "along", "among", "before",
-    "behind", "beside", "from", "beneath", "between", "down", "under", "over", "near", "off", "within",
 ];
 
 const dramAdj = [
@@ -144,8 +144,8 @@ const titleGenerator = () => {
     //will hold value
     const randomArticle = getRandomArrayItem(articles);
     const randomPrep = getRandomArrayItem(prepositions);
-    const randomAdjective = getRandomArrayItem(randomAdjectiveArray);
-    const randomNoun = getRandomArrayItem(randomNounArray);
+    const randomAdjective = getRandomArrayItem(adjectives);
+    const randomNoun = getRandomArrayItem(nouns);
     const randomMysNoun = getRandomArrayItem(mysNoun);
     const randomPlace = getRandomArrayItem(places);
 
@@ -352,3 +352,5 @@ betterTitleGenerator();
 // console.log(makeItPlural("journey"), makeItPlural(getRandomArrayItem(randomNounArray)));
 
 // console.log(makeItPosessive("butcher"));
+
+module.exports = { articles, prepositions, mysNoun, places, dramAdj, makeItPlural, makeItPosessive, canMakePlural, pluralCheck, anCheck, articleOrPrep, isNoun, isStartVowel, startWvowel }
