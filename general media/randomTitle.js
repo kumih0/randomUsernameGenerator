@@ -59,13 +59,14 @@ const makeItPosessive = (w) => {
 
 //funct to check if word is prep or art
 const articleOrPrep = (w) => {
-    switch (w) {
-        case (articles.includes(w)):
-            return result = "article";
-        case (prepositions.includes(w)):
-            return result = "preposition";
-        default:
-            return result = "wtf";
+    console.log(w)
+    let result;
+   if (articles.includes(w)){
+            return result = "article", console.log("article");
+   } else if(prepositions.includes(w)){
+            return result ="preposition", console.log("preposition");
+   } else {
+            return result ="wtf", console.log("wtf");
     };
 };
 
@@ -148,70 +149,70 @@ const startWvowel = () => {
 //if preposition first, follow with article
 //if article is the, then plural works if a/an can't be plural
 
-const titleGenerator = () => {
-    let title = [];
-    //will hold value
-    const randomArticle = getRandomArrayItem(articles);
-    const randomPrep = getRandomArrayItem(prepositions);
-    const randomAdjective = getRandomArrayItem(adjectives);
-    const randomNoun = getRandomArrayItem(nouns);
-    const randomMysNoun = getRandomArrayItem(mysNoun);
-    const randomPlace = getRandomArrayItem(places);
+// const titleGenerator = () => {
+//     let title = [];
+//     //will hold value
+//     const randomArticle = getRandomArrayItem(articles);
+//     const randomPrep = getRandomArrayItem(prepositions);
+//     const randomAdjective = getRandomArrayItem(adjectives);
+//     const randomNoun = getRandomArrayItem(nouns);
+//     const randomMysNoun = getRandomArrayItem(mysNoun);
+//     const randomPlace = getRandomArrayItem(places);
 
-    //first word choice 
-    const firstWord = russianRoulette(randomArticle, randomPrep, randomAdjective, randomNoun, randomMysNoun, randomPlace);
+//     //first word choice 
+//     const firstWord = russianRoulette(randomArticle, randomPrep, randomAdjective, randomNoun, randomMysNoun, randomPlace);
 
-    //check if first word is adj, noun, place, and add a random article or preposition
-    if (articleOrPrep(firstWord) == "wtf") {
-        title.push(coinFlip(getRandomArrayItem(articles), getRandomArrayItem(prepositions)));
-    };
+//     //check if first word is adj, noun, place, and add a random article or preposition
+//     if (articleOrPrep(firstWord) == "wtf") {
+//         title.push(coinFlip(getRandomArrayItem(articles), getRandomArrayItem(prepositions)));
+//     };
 
-    //if first index is preposition, then add article
-    if (articleOrPrep(title[0]) === "preposition") {
-        title.push(getRandomArrayItem(articles));
-    };
+//     //if first index is preposition, then add article
+//     if (articleOrPrep(title[0]) === "preposition") {
+//         title.push(getRandomArrayItem(articles));
+//     };
 
-    //if firstword is article, push; if prep, push and add article
-    if (articleOrPrep(firstWord) === "article") {
-        title.push(firstWord);
-    } else if (articleOrPrep(firstWord) === "preposition") {
-        title.push(firstWord);
-        title.push(getRandomArrayItem(articles));
-    };
+//     //if firstword is article, push; if prep, push and add article
+//     if (articleOrPrep(firstWord) === "article") {
+//         title.push(firstWord);
+//     } else if (articleOrPrep(firstWord) === "preposition") {
+//         title.push(firstWord);
+//         title.push(getRandomArrayItem(articles));
+//     };
 
-    //the last index of the title array should be an article, check type
-    let lastIndex = title.length - 1;
-    console.log(title[lastIndex]);
+//     //the last index of the title array should be an article, check type
+//     let lastIndex = title.length - 1;
+//     console.log(title[lastIndex]);
 
-    //if an is selected, only words beginning with a vowel can be used
-    if (anCheck(title[lastIndex]) && !(title.includes(firstWord))) {
-        //if last index is an and title hasn't included first word yet, check is firstword starts with vowel
-        if (vowels.includes(firstWord[0])) {
-            title.push(firstWord);
-        } else {
-            //if firstword doesn't start w a vowel, then replace article with a or the, then push first word
-            title.pop();
-            title.push(coinFlip("a", "the"));
-            title.push(firstWord);
-        };
-    } else if (anCheck(title[lastIndex]) && title.includes(firstWord)) {
-        //if last index is an and title already includes first word, then find word that begins w vowel
-        title.push(startWvowel());
-    } else if (!(title.includes(firstWord))) {
-        //if last index is not an and title doesn't include first word, then push first word
-        title.push(firstWord);
-    } else {
-        const next = coinFlip(randomMysNoun, randomAdjective, randomNoun, randomPlace);
-        console.log(next);
-        title.push(next);
-    };
+//     //if an is selected, only words beginning with a vowel can be used
+//     if (anCheck(title[lastIndex]) && !(title.includes(firstWord))) {
+//         //if last index is an and title hasn't included first word yet, check is firstword starts with vowel
+//         if (vowels.includes(firstWord[0])) {
+//             title.push(firstWord);
+//         } else {
+//             //if firstword doesn't start w a vowel, then replace article with a or the, then push first word
+//             title.pop();
+//             title.push(coinFlip("a", "the"));
+//             title.push(firstWord);
+//         };
+//     } else if (anCheck(title[lastIndex]) && title.includes(firstWord)) {
+//         //if last index is an and title already includes first word, then find word that begins w vowel
+//         title.push(startWvowel());
+//     } else if (!(title.includes(firstWord))) {
+//         //if last index is not an and title doesn't include first word, then push first word
+//         title.push(firstWord);
+//     } else {
+//         const next = coinFlip(randomMysNoun, randomAdjective, randomNoun, randomPlace);
+//         console.log(next);
+//         title.push(next);
+//     };
 
-    console.log(title);
+//     console.log(title);
 
-};
+// };
 
 
-titleGenerator();
+// titleGenerator();
 
 //TODO: work on ^^^ above title generator sequence, simply by using held value random words to create titles and then substitute as needed
 //issues cont. with larger username noun and adj arrays
@@ -221,136 +222,136 @@ titleGenerator();
 //break down into smaller modular functions (checking last index if adjective, noun, etc., article)
 //should be:
 // (prep) + article + (adj) + noun (pl/ >poss> <adj--noun>) + prep + art + (adj) + noun (pl/ >poss> (adj--noun)) ex. "Beyond the Secrets of the Deep" 
-const betterTitleGenerator = () => {
-    let title = [];
-    let lastIndex;
-    //will hold value
-    const randomArticle = getRandomArrayItem(articles);
-    const randomPrep = getRandomArrayItem(prepositions);
-    const randomAdjective = getRandomArrayItem(adjectives);
-    const randomNoun = getRandomArrayItem(nouns);
-    const randomMysNoun = getRandomArrayItem(mysNoun);
-    const randomPlace = getRandomArrayItem(places);
+// const betterTitleGenerator = () => {
+//     let title = [];
+//     let lastIndex;
+//     //will hold value
+//     const randomArticle = getRandomArrayItem(articles);
+//     const randomPrep = getRandomArrayItem(prepositions);
+//     const randomAdjective = getRandomArrayItem(adjectives);
+//     const randomNoun = getRandomArrayItem(nouns);
+//     const randomMysNoun = getRandomArrayItem(mysNoun);
+//     const randomPlace = getRandomArrayItem(places);
 
-    // const bigBoys = randomNounArray.concat(randomAdjectiveArray, places, mysNoun);
+//     // const bigBoys = randomNounArray.concat(randomAdjectiveArray, places, mysNoun);
 
-    const addAdj = () => {
-        let result = coinFlip(true, false);
-        if (result) {
-            title.push(getRandomArrayItem(adjectives));
-        };
-    };
+//     const addAdj = () => {
+//         let result = coinFlip(true, false);
+//         if (result) {
+//             title.push(getRandomArrayItem(adjectives));
+//         };
+//     };
 
-    const firstWord = coinFlip(randomArticle, randomPrep);
-    console.log(firstWord);
+//     const firstWord = coinFlip(randomArticle, randomPrep);
+//     console.log(firstWord);
 
-    //check if article or prep
-    if (articleOrPrep(firstWord) === "article") {
-        title.push(firstWord);
-    } else if (articleOrPrep(firstWord) === "preposition") {
-        //if prep, push and add article
-        title.push(firstWord);
-        title.push(getRandomArrayItem(articles));
-    };
+//     //check if article or prep
+//     if (articleOrPrep(firstWord) === "article") {
+//         title.push(firstWord);
+//     } else if (articleOrPrep(firstWord) === "preposition") {
+//         //if prep, push and add article
+//         title.push(firstWord);
+//         title.push(getRandomArrayItem(articles));
+//     };
 
-    //check last index
-    const checkLastIndex = () => {
-        lastIndex = title[title.length - 1];
-        console.log(lastIndex);
-        return lastIndex;
-    };
+//     //check last index
+//     const checkLastIndex = () => {
+//         lastIndex = title[title.length - 1];
+//         console.log(lastIndex);
+//         return lastIndex;
+//     };
 
-    checkLastIndex();
+//     checkLastIndex();
 
-    //if last index is an, then only words beginning with a vowel can be used
-    if (anCheck(lastIndex)) {
-        title.push(startWvowel());
-    } else {
-        //if last index not an, pick second word 
-        const secondWord = coinFlip(randomAdjective, randomMysNoun, randomPlace);
-        console.log(secondWord);
+//     //if last index is an, then only words beginning with a vowel can be used
+//     if (anCheck(lastIndex)) {
+//         title.push(startWvowel());
+//     } else {
+//         //if last index not an, pick second word 
+//         const secondWord = coinFlip(randomAdjective, randomMysNoun, randomPlace);
+//         console.log(secondWord);
 
-        //check if second word starts with vowel and switch article properly
-        if (isStartVowel(secondWord)) {
-            title.pop();
-            title.push(coinFlip("an", "the"));
-            title.push(secondWord);
-            //TODO: something is going wrong with adjectives...
-        } else if (adjectives.includes(secondWord)) {
-            //if second word is adj, push it and push random noun/place
-            title.push(secondWord);
-            title.push(coinFlip(randomNoun, randomMysNoun, randomPlace));
-        } else {
-            //if second word doesn't start w vowel, check if can be plural then coinflip if it's plural, otherwise push
-            pluralCheck(lastIndex) ? title.push(coinFlip(makeItPlural(secondWord), secondWord)) : title.push(secondWord);
-        };
+//         //check if second word starts with vowel and switch article properly
+//         if (isStartVowel(secondWord)) {
+//             title.pop();
+//             title.push(coinFlip("an", "the"));
+//             title.push(secondWord);
+//             //TODO: something is going wrong with adjectives...
+//         } else if (adjectives.includes(secondWord)) {
+//             //if second word is adj, push it and push random noun/place
+//             title.push(secondWord);
+//             title.push(coinFlip(randomNoun, randomMysNoun, randomPlace));
+//         } else {
+//             //if second word doesn't start w vowel, check if can be plural then coinflip if it's plural, otherwise push
+//             pluralCheck(lastIndex) ? title.push(coinFlip(makeItPlural(secondWord), secondWord)) : title.push(secondWord);
+//         };
 
-        //check the last index again
-        checkLastIndex();
-        //TODO: possessive is fucking up, single quote double quote issue??
-        // //coinflip if it's possessive
-        // const isPossessive = coinFlip(true, false);
-        // console.log(isPossessive);
+//         //check the last index again
+//         checkLastIndex();
+//         //TODO: possessive is fucking up, single quote double quote issue??
+//         // //coinflip if it's possessive
+//         // const isPossessive = coinFlip(true, false);
+//         // console.log(isPossessive);
 
-        // if (isPossessive) {
-        //     title.pop();
-        //     title.push(makeItPosessive(lastIndex));
+//         // if (isPossessive) {
+//         //     title.pop();
+//         //     title.push(makeItPosessive(lastIndex));
 
-        //     //add adjective?
-        //     // const addAdj = coinFlip(true, false);
-        //     // console.log(addAdj);
-        //     // if (addAdj) {
-        //     //     title.push(getRandomArrayItem(randomAdjectiveArray));
-        //     // }
-        //     addAdj();
-        //     //push noun
-        //     title.push(getRandomArrayItem(randomNounArray));
-        // };
+//         //     //add adjective?
+//         //     // const addAdj = coinFlip(true, false);
+//         //     // console.log(addAdj);
+//         //     // if (addAdj) {
+//         //     //     title.push(getRandomArrayItem(randomAdjectiveArray));
+//         //     // }
+//         //     addAdj();
+//         //     //push noun
+//         //     title.push(getRandomArrayItem(randomNounArray));
+//         // };
 
-        //coinflip on adding preposition
-        const addPrep = coinFlip(true, false);
-        console.log(addPrep);
-        if (addPrep) {
-            title.push(getRandomArrayItem(prepositions));
-            title.push(getRandomArrayItem(articles));
-        };
+//         //coinflip on adding preposition
+//         const addPrep = coinFlip(true, false);
+//         console.log(addPrep);
+//         if (addPrep) {
+//             title.push(getRandomArrayItem(prepositions));
+//             title.push(getRandomArrayItem(articles));
+//         };
 
-        //check last index again
-        checkLastIndex();
+//         //check last index again
+//         checkLastIndex();
 
-        if (anCheck(lastIndex)) {
-            const next = startWvowel();
-            console.log(next);
+//         if (anCheck(lastIndex)) {
+//             const next = startWvowel();
+//             console.log(next);
 
-            //check if next word is adj
-            if (adjectives.includes(next)) {
-                //if adj, push and push random noun/place
-                title.push(next);
-                title.push(getRandomArrayItem(bigBoys));
-            } else {
-                //if not push next word
-                title.push(next);
-            };
-        } else if (pluralCheck(lastIndex)) {
-            //if last index is plural, then coinflip on adding an adjective
-            addAdj();
-            const next = getRandomArrayItem(bigBoys);
-            console.log(next);
+//             //check if next word is adj
+//             if (adjectives.includes(next)) {
+//                 //if adj, push and push random noun/place
+//                 title.push(next);
+//                 title.push(getRandomArrayItem(bigBoys));
+//             } else {
+//                 //if not push next word
+//                 title.push(next);
+//             };
+//         } else if (pluralCheck(lastIndex)) {
+//             //if last index is plural, then coinflip on adding an adjective
+//             addAdj();
+//             const next = getRandomArrayItem(bigBoys);
+//             console.log(next);
 
-            title.push(coinFlip(makeItPlural(next), next));
-        } else {
-            addAdj();
-            const next = getRandomArrayItem(bigBoys);
-            console.log(next);
+//             title.push(coinFlip(makeItPlural(next), next));
+//         } else {
+//             addAdj();
+//             const next = getRandomArrayItem(bigBoys);
+//             console.log(next);
 
-            title.push(next);
-        };
-    };
-    console.log(title);
+//             title.push(next);
+//         };
+//     };
+//     console.log(title);
 
-};
+// };
 
-betterTitleGenerator();
+// betterTitleGenerator();
 
 
 
