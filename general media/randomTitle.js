@@ -80,9 +80,18 @@ const pluralCheck = (w) => {
 
 //mini fn to check if noun
 const isNoun = (w) => {
-    const bigNounBank = randomNounArray.concat(mysNoun, places);
+    const bigNounBank = nouns.concat(mysNoun, places);
 
     if (bigNounBank.includes(w)) {
+        return true;
+    } else {
+        return false;
+    };
+};
+
+//check if adjective
+const isAdj = (w) => {
+    if(adjectives.includes(w)) {
         return true;
     } else {
         return false;
@@ -124,7 +133,7 @@ const isStartVowel = (w) => {
 
 //mini function for picking a random noun, adjective, etc., and re-running until it has a vowel as the first letter
 const startWvowel = () => {
-    const w = getRandomArrayItem(randomNounArray.concat(randomAdjectiveArray, places, mysNoun));
+    const w = getRandomArrayItem(nouns.concat(adjectives, places, mysNoun));
     if (isStartVowel(w)) {
         console.log(w);
         return w;
@@ -218,17 +227,17 @@ const betterTitleGenerator = () => {
     //will hold value
     const randomArticle = getRandomArrayItem(articles);
     const randomPrep = getRandomArrayItem(prepositions);
-    const randomAdjective = getRandomArrayItem(randomAdjectiveArray);
-    const randomNoun = getRandomArrayItem(randomNounArray);
+    const randomAdjective = getRandomArrayItem(adjectives);
+    const randomNoun = getRandomArrayItem(nouns);
     const randomMysNoun = getRandomArrayItem(mysNoun);
     const randomPlace = getRandomArrayItem(places);
 
-    const bigBoys = randomNounArray.concat(randomAdjectiveArray, places, mysNoun);
+    // const bigBoys = randomNounArray.concat(randomAdjectiveArray, places, mysNoun);
 
     const addAdj = () => {
         let result = coinFlip(true, false);
         if (result) {
-            title.push(getRandomArrayItem(randomAdjectiveArray));
+            title.push(getRandomArrayItem(adjectives));
         };
     };
 
@@ -267,7 +276,7 @@ const betterTitleGenerator = () => {
             title.push(coinFlip("an", "the"));
             title.push(secondWord);
             //TODO: something is going wrong with adjectives...
-        } else if (randomAdjectiveArray.includes(secondWord)) {
+        } else if (adjectives.includes(secondWord)) {
             //if second word is adj, push it and push random noun/place
             title.push(secondWord);
             title.push(coinFlip(randomNoun, randomMysNoun, randomPlace));
@@ -314,7 +323,7 @@ const betterTitleGenerator = () => {
             console.log(next);
 
             //check if next word is adj
-            if (randomAdjectiveArray.includes(next)) {
+            if (adjectives.includes(next)) {
                 //if adj, push and push random noun/place
                 title.push(next);
                 title.push(getRandomArrayItem(bigBoys));
@@ -353,4 +362,4 @@ betterTitleGenerator();
 
 // console.log(makeItPosessive("butcher"));
 
-module.exports = { articles, prepositions, mysNoun, places, dramAdj, makeItPlural, makeItPosessive, canMakePlural, pluralCheck, anCheck, articleOrPrep, isNoun, isStartVowel, startWvowel }
+module.exports = { articles, prepositions, mysNoun, places, dramAdj, makeItPlural, makeItPosessive, canMakePlural, pluralCheck, anCheck, articleOrPrep, isNoun, isStartVowel, startWvowel, isAdj }

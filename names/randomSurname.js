@@ -50,8 +50,8 @@ const sillyends = [
   'muncher', 'eater', 'whizzer', 'pisser', 'farter', 'flipper', 'flaps', 'meat', 'pocket', 'flopper', 'licker', 
 ]
 
-const swears = [
-  'Fuck', 'Shit', 'Bitch', 'Bastard', 'Cunt', 'Ass', 'Asshole', '
-];
+// const swears = [
+//   'Fuck', 'Shit', 'Bitch', 'Bastard', 'Cunt', 'Ass', 'Asshole', 
+// ];
 
 //random surname class constructor

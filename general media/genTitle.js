@@ -4,7 +4,7 @@ const { adjectives, dookieAdj } = require('../utils/randomAdjectiveList');
 const { vowels } = require('../utils/vowels-consonants');
 const { getRandomArrayItem, coinFlip, stringIt, russianRoulette } = require('../utils/helpers');
 //importing things from random title, starting w a clean slate because i am dumb and can't organize myself lol
-const { articles, prepositions, mysNoun, places, dramAdj, makeItPlural, makeItPosessive, canMakePlural, pluralCheck, anCheck, articleOrPrep, isNoun, isStartVowel, startWvowel } = require('./randomTitle');
+const { articles, prepositions, mysNoun, places, dramAdj, makeItPlural, makeItPosessive, canMakePlural, pluralCheck, anCheck, articleOrPrep, isNoun, isStartVowel, startWvowel, isAdj } = require('./randomTitle');
 
 
 const titleGenerator = () => {
@@ -35,21 +35,25 @@ const titleGenerator = () => {
         console.log(title);
 
         if(anCheck(randomArticle)) {
-            const mainChoice = [ randomAdjective, randomMysNoun, randomPlace ];
 
-            for (let i = 0; i < mainChoice.length; i++) {
-                const choice = mainChoice[i];
-                
+            switch(isStartVowel) {
+                case randomAdjective:
+                    return title.push(randomAdjective);
+                case randomMysNoun:
+                    return title.push(randomMysNoun);
+                case randomPlace:
+                    return title.push(randomPlace);
+                default: //if none start w vowel 
+                    return title.push(startWvowel)
             }
-        }
-        // //check last index
-        // const checkLastIndex = () => {
-        //     lastIndex = title[title.length - 1];
-        //     console.log(lastIndex);
-        //     return lastIndex;
-        // };
-    
-        // checkLastIndex();
 
-        //check 
+        }
+        //check last index
+        const checkLastIndex = () => {
+            lastIndex = title[title.length - 1];
+            console.log(lastIndex);
+            return lastIndex;
+        };
+    
+        checkLastIndex();
 };
